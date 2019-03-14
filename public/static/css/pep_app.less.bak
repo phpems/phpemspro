@@ -1,0 +1,157 @@
+@bgcolor:#f5f5f5;
+@color:#000000;
+@headerbgcolor:#0f74a8;
+@headerfontcolor:#FFFFFF;
+@headerfontlinkcolor:#FFFFFF;
+@footerbgcolor:#0f74a8;
+@footerfontcolor:#FFFFFF;
+@footerfontlinkcolor:#FFFFFF;
+@panelbgcolor:#FFFFFF;
+
+/**bootstrap 重定义**/
+.container-fluid,.row-fluid{
+    padding: 0px;
+    width:100%;
+    min-width:102rem;
+}
+.breadcrumb{
+    background-color:@panelbgcolor ;
+    line-height: 2rem;
+    border-radius: 0px;
+    box-shadow: 1px 1px 1px #DDDDDD;
+}
+.list-group-item,.panel{
+    border-radius: 0px!important;
+}
+.panel-body form{
+    padding-top:1rem;
+}
+
+td ul{
+    margin-bottom: 0px;
+}
+
+.btn.tool{
+    padding-left: 0.4rem;;
+    padding-right: 0.4rem;;
+}
+.help-block{
+    margin-bottom: 0px;
+}
+/**pep原生**/
+html{
+    width: 100%;
+    height:100%;
+    font-size:14px;
+    color:@color;
+    background-color: @bgcolor;
+}
+body{
+    margin-top: 4rem;
+    margin-bottom: 8rem;
+    background-color: @bgcolor;
+    position: relative;
+}
+a{
+    &:hover{
+        text-decoration: none;
+    }
+}
+.pep{
+    width: 100rem;
+    clear: both;
+    display: block;
+    margin:0px auto;
+    .logo{
+        font-weight:bolder;
+        color:@headerfontcolor;
+        font-size: 2rem;
+        line-height: 4rem;
+    }
+    .regbox{
+        width: 36%;
+        margin: auto;
+        margin-top: 1rem;
+        .form-group{
+            label{
+                line-height: 2rem;
+            }
+        }
+    }
+}
+.header{
+    position: fixed;
+    top: 0px;
+    line-height: 3rem;
+    background-color: @headerbgcolor;
+    height:4rem;
+    color:@headerfontcolor;
+    z-index:9;
+    a{
+        color:@headerfontlinkcolor;
+        &:hover{
+            color:@headerfontlinkcolor;
+        }
+    }
+    ul{
+        li{
+            text-align: center;
+            width:auto;
+            min-width: 4rem;
+            padding:0 2rem;
+            margin:0.5rem 0px;
+            border-radius: 0.4rem;
+            border:@headerbgcolor solid 1px;
+            box-sizing:border-box;
+            &.active,&:hover{
+                background-color: #3F90B9;
+            }
+        }
+    }
+}
+.leftmenu{
+    padding-top:1rem;
+    .list-group-item{
+        line-height: 1.75rem;
+        &.active a{
+            color:#FFFFFF;
+        }
+    }
+}
+.settingbar{
+    padding-bottom:1rem;
+}
+#datacontent{
+    padding-top:1rem;
+}
+.footer{
+    position: fixed;
+    bottom: 0px;
+    height:8rem;
+    overflow: hidden;
+    color:@footerfontcolor;
+    background-color: @footerbgcolor;
+    min-height: 4rem;
+    overflow: hidden;
+    padding:1rem;
+    line-height: 2rem;
+    z-index: 9;
+    a{
+        color: @footerfontlinkcolor;
+    }
+}
+.orderinput{
+    padding-left:0.5rem;
+    width:3rem;
+    border: 0px;
+}
+/**user模块**/
+.form-control.normalinput{
+    width:18rem;
+}
+.form-control.shortinput{
+    width:12rem;
+}
+.form-control.middleinput{
+    width:24rem;
+}

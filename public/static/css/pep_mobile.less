@@ -1,0 +1,658 @@
+@bgcolor:#F1F5F8;
+@color:#555555;
+@activecolor:#02756E;
+@headerbgcolor:#0f74a8;
+@headerfontcolor:#FFFFFF;
+@headerfontlinkcolor:#FFFFFF;
+@bodyfontcolor:#FFFFFF;
+@footerbgcolor:#0f74a8;
+@footerfontcolor:#FFFFFF;
+@footerfontlinkcolor:#FFFFFF;
+@panelbgcolor:#FFFFFF;
+@iconcolor:#777777;
+@bordercolor:#F0F0F0;
+@wrongcolor:#FF7B77;
+@rightcolor:#18B8A0;
+@activecolor:#E8581B;
+/**@activecolor:#337AB7;**/
+@font-face{
+    font-family: 'Mistral';
+    src: url("../fonts/mistral.ttf");
+}
+/**bootstrap 重定义**/
+.glyphicon{
+    font-size: 0.20rem;
+}
+.col-xs-1,.col-xs-2,.col-xs-3,.col-xs-4,.col-xs-5,.col-xs-6,.col-xs-7,.col-xs-8,.col-xs-9,.col-xs-10,.col-xs-11,.col-xs-12{
+    padding:0.075rem;
+}
+.btn-primary,.btn-primary:active,.btn-primary:hover{
+    background-color:@activecolor;
+    border-color:@activecolor;
+}
+.btn:active{
+    box-shadow: none;
+}
+.btn-primary:active:hover{
+    background-color:#E76D00;
+}
+/**pep原生**/
+html,body{
+    width: 100%;
+    height:100%;
+    font-size:100px;
+    color:@color;
+    background:none;
+    overflow: hidden;
+}
+body{
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    background-color: @bgcolor;
+}
+a{
+    overflow: hidden;
+    color: @color;
+    &:hover{
+        color: @color;
+        text-decoration: none;
+    }
+    &:active{
+        color: @color;
+        text-decoration: none;
+    }
+}
+img{
+    max-width: 100%;
+}
+.mask{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top:0px;
+    z-index:99997;
+    .maskbox{
+        height: 100%;
+        width: 100%;
+        background-color: #0f0f0f;
+        opacity: 0.6;
+        z-index:99998;
+    }
+    .tips{
+        position: absolute;
+        background-color: #0f0f0f;
+        color:#FFFFFF;
+        border-radius: 0.05rem;
+        bottom:0.8rem;
+        left:50%;
+        padding:0.1rem 0.2rem;
+        font-size: 0.14rem;
+        text-align: center;
+        z-index:99999;
+    }
+    .dangerTips{
+        background-color: @bodyfontcolor;
+        border-radius: 0.05rem;
+        font-size: 0.16rem;
+        position: absolute;
+        width: 72%;
+        top:35%;
+        left:14%;
+        z-index:99999;
+        text-align: center;
+        .tipbox{
+            padding:0.2rem;
+            line-height: 0.28rem;
+            border-bottom: 1px solid @bordercolor;
+        }
+        .tiptitle{
+            color: @color;
+            line-height: 0.48rem;
+            &:active{
+                background-color: gainsboro;
+                border-bottom-left-radius:0.05rem;
+                border-bottom-right-radius:0.05rem;
+            }
+        }
+    }
+    .confirmTips{
+        background-color: @bodyfontcolor;
+        border-radius: 0.05rem;
+        font-size: 0.16rem;
+        position: absolute;
+        width: 72%;
+        top:35%;
+        left:14%;
+        z-index:99999;
+        text-align: center;
+        .tipbox{
+            padding:0.2rem;
+            line-height: 0.28rem;
+            border-bottom: 1px solid @bordercolor;
+        }
+        .tiptitle{
+            color: @color;
+            line-height: 0.36rem;
+            div{
+                &:active{
+                    background-color: gainsboro;
+                }
+                &.confirm{
+                    border-right: 1px solid @bordercolor;
+                    border-bottom-left-radius:0.05rem;
+                }
+                &.cancel{
+                    border-bottom-right-radius:0.05rem;
+                }
+            }
+        }
+    }
+}
+.pages{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0px;
+    left:0px;
+    background-color: @bgcolor;
+    &:last-child{
+        z-index: 999;
+    }
+}
+.pages-header{
+    position: fixed;
+    background-color: @activecolor;
+    padding-top:0.06rem;
+    font-size: 0.16rem;
+    width:100%;
+    top: 0px;
+    color:@bodyfontcolor;
+    z-index:9;
+    height: 0.48rem;
+    line-height: 0.24rem;
+    border-bottom:0.00rem gainsboro solid;
+    a{
+        color: @bodyfontcolor;
+        font-weight: bold;
+    }
+    .glyphicon{
+        color: @bodyfontcolor;
+    }
+}
+.pages > .pages-tabs{
+    display: none;
+    cursor: pointer;
+    &:first-child{
+        display: block;
+    }
+}
+.pages-content{
+    position: absolute;
+    width: 100%;
+    font-size: 0.14rem;
+    top: 0.48rem;
+    bottom: 0.6rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    &.noheader{
+        top:0px;
+    }
+    &.nofooter{
+        bottom:0px;
+    }
+    .pages-swiper{
+        width: 100%;
+        background-color: @panelbgcolor;
+        overflow-y: visible;
+        margin-bottom: 0.12rem;
+        height:1.8rem;
+        height:fit-content;
+    }
+    .pages-box{
+        width: 100%;
+        overflow-y: visible;
+        padding: 0px 0.075rem;
+        &.swiper-slide{
+            overflow-y: scroll;
+        }
+        &.nopadding{
+            padding:0px;
+        }
+        .page-form{
+            padding:0.15rem;
+            font-size: 0.16rem;
+            line-height: 0.32rem;
+            .form-group{
+                clear: both;
+                overflow: hidden;
+                &.border{
+                    border-bottom: 1px solid gainsboro;
+                    overflow: hidden;
+                    &:hover{
+                        border-bottom: 1px solid @activecolor;
+                    }
+                }
+                label{
+                    font-weight: normal;
+                }
+                input{
+                    font-size: 0.18rem;
+                    border: none!important;
+                    box-shadow:none;
+                    background:transparent;
+                    outline: medium;
+                    &:focus,&:hover,&:active{
+                        border: none;
+                        background:transparent;
+                        outline: medium;
+                    }
+                }
+                .btn{
+                    line-height: 0.36rem;
+                    font-size: 0.16rem;
+                }
+            }
+        }
+        .page-video{
+            width: 100%;
+            height: 2.8rem;
+        }
+        .page-ele{
+            padding: 0.1rem;
+            background-color: @panelbgcolor;
+            margin-bottom: 0.12rem;
+            overflow:hidden;
+            &.radius{
+                border-radius: 0.08rem;
+            }
+            &.clear{
+                padding: 0px;
+                background: none;
+            }
+            &.margin{
+                margin-top: 0.12rem;
+            }
+            &.contin{
+                margin-bottom: 1px;
+                &:last-child{
+                    margin-bottom: 0.12rem;
+                }
+            }
+            .scorearea{
+                padding-top: 0.15rem;
+                padding-bottom: 0.15rem;
+                clear: both;
+                overflow: hidden;
+                .score{
+                    text-align:center;
+                    display:block;
+                    margin:auto;
+                    width: 1.2rem;
+                    font-size:0.6rem;
+                    line-height:1.2rem;
+                    height:1.2rem;
+                    border-radius: 0.8rem;
+                    font-family: Mistral;
+                    letter-spacing: 0.05rem;
+                    border: 0.02rem solid @activecolor;
+                }
+                .paperinfo{
+                    display: block;
+                    padding-top:0.25rem;
+                    height: 1.2rem;
+                }
+            }
+            .clear{
+                clear:both;
+                overflow: hidden;
+            }
+            &.videos{
+                margin-bottom: 0rem;
+                overflow-y: scroll;
+            }
+            .title{
+                font-weight: bold;
+                font-size: 0.18rem;
+                line-height: 0.24rem;
+                &.range{
+                    height:0.40rem;
+                    line-height: 0.2rem;
+                    padding-left:0.1rem;
+                    padding-right:0.1rem;
+                    overflow:hidden;
+                }
+            }
+            .news{
+                font-size: 0.18rem;
+                line-height: 0.28rem;
+                clear: both;
+                p{
+                    text-indent: 2em;
+                }
+            }
+            .bigtitle{
+                font-weight: bold;
+                font-size: 0.18rem;
+                line-height: 0.36rem;
+                margin: 0px;
+                &:before{
+                    border:0.025rem solid @activecolor;
+                    content:'';
+                    border-radius: 0.025rem;
+                    margin-right: 0.075rem;
+                    font-size: 0.20rem;
+                }
+            }
+            .btn-block{
+                font-size: 0.16rem;
+                line-height: 0.30rem;
+            }
+            .cartbox{
+                display: block;
+                height: auto;
+                font-size: 0.16rem;
+                margin-bottom: 0.10rem;
+                &:last-child{
+                    margin-bottom: 0px;
+                }
+                input{
+                    display: none;
+                }
+                .cart{
+                    width: 100%;
+                    background-color: @panelbgcolor;
+                    border:1px solid gainsboro;
+                    border-radius: 0.05rem!important;
+                    text-align: left;
+                    padding:0rem 0.075rem;
+                    overflow: hidden;
+                    font-weight: normal;
+                    .price{
+                        font-size: 0.24rem;
+                        line-height: 0.48rem;
+                        text-align: right;
+                        padding:0.15rem;
+                    }
+                    p{
+                        color: @iconcolor;
+                        line-height: 0.36rem;
+                    }
+                }
+                input:checked + .cart{
+                    border-color: @activecolor;
+                }
+            }
+            .question{
+                font-size: 0.18rem;
+                line-height: 0.36rem;
+                padding:0.075rem;
+                .form-inline{
+                    .form-control{
+                        width:auto;
+                        display: inline-block;
+                    }
+                }
+                .clear{
+                    clear: both;
+                }
+                div{
+                    overflow: hidden;
+                }
+                hr{
+                    margin: 0px;
+                }
+                .tiptext{
+                    font-size: 0.14rem;
+                }
+                .btn-primary{
+                    &.finishbtn{
+                        margin-top: 0.15rem;
+                        padding:0.075rem 0.25rem;
+                        border-radius: 0.17rem;
+                        border: 0px;
+                    }
+                    &.btn-primary:hover{
+                        border-radius: 0.17rem!important;
+                    }
+                }
+                .selectbox{
+                    display: inline-block;
+                    font-weight: normal;
+                    cursor: pointer;
+                    &.float{
+                        float:left;
+                    }
+                    & + p{
+                        margin-left: 0.5rem;
+                        padding-top: 0.12rem;
+                    }
+                    .selector
+                    {
+                        width: 0.36rem;
+                        height: 0.36rem;
+                        line-height:0.34rem;
+                        text-align: center;
+                        font-size: 0.16rem;
+                        display: block;
+                        margin-right:0.1rem ;
+                        border:0.01rem solid @iconcolor;
+                        border-radius: 0.36rem;
+                        font-weight: normal;
+                        display: -webkit-inline-box;
+                        text-align: -webkit-center;
+                        &.selected{
+                            border-color: @activecolor!important;
+                            background-color: @activecolor!important;
+                            color: @bodyfontcolor!important;
+                        }
+                        &.sign{
+                            background-color: @wrongcolor!important;
+                            color: @bodyfontcolor!important;
+                            border-color: @wrongcolor!important;
+                        }
+                        .glyphicon{
+                            line-height: 0.34rem;
+                        }
+                    }
+                    &:last-child{
+                        margin-right:0rem;
+                    }
+                    &.radio{
+                        input{
+                            display: none;
+                        }
+                        input:checked + .selector{
+                            border-color:@activecolor;
+                            border-width: 0.01rem;
+                            line-height:0.34rem;
+                            color:@activecolor;
+                            &.right{
+                                background-color: @rightcolor!important;
+                                color: @bodyfontcolor!important;
+                                border-color: @rightcolor!important;
+                            }
+                            &.wrong{
+                                background-color: @wrongcolor!important;
+                                color: @bodyfontcolor!important;
+                                border-color: @wrongcolor!important;
+                            }
+                        }
+                        .selector{
+                            border-radius: 0.36rem;
+                            border:0.01rem solid @iconcolor;
+                            box-sizing: border-box;
+                            font-size: 0.20rem!important;
+                        }
+                    }
+                    &.checkbox{
+                        input{
+                            display: none;
+                        }
+                        input:checked + .selector{
+                            border-color:@activecolor;
+                            border-width: 0.01rem;
+                            line-height:0.34rem;
+                            color:@activecolor;
+                            &.right{
+                                background-color: @rightcolor!important;
+                                color: @bodyfontcolor!important;
+                                border-color: @rightcolor!important;
+                            }
+                            &.wrong{
+                                background-color: @wrongcolor!important;
+                                color: @bodyfontcolor!important;
+                                border-color: @wrongcolor!important;
+                            }
+                        }
+                        .selector{
+                            border-radius: 0.8rem;
+                            border:0.01rem solid @iconcolor;
+                            box-sizing: border-box;
+                            font-size: 0.20rem!important;
+                        }
+                    }
+                }
+            }
+            .col-xs-6{
+                padding-top: 0.0375rem;
+                padding-bottom: 0.0375rem;
+                &:nth-child(odd){
+                    padding-left: 0px;
+                    padding-right: 0.0375rem;
+                }
+                &:nth-child(even){
+                    padding-right: 0px;
+                    padding-left: 0.0375rem;
+                }
+                .cards{
+                    background-color: #FFFFFF;
+                    clear: both;
+                    overflow: hidden;
+                    border-radius: 0.08rem;
+                    padding:0.15rem 0rem;
+                }
+            }
+            ul.orders{
+                padding:0rem 0.1rem;
+                margin-bottom: 0px;
+                li{
+                    line-height: 0.36rem;
+                    list-style-type: none;
+                    border-bottom: 1px solid @bgcolor;
+                    font-size: 0.14rem;
+                    &.title{
+                        font-weight: bold;
+                    }
+                    &.detail{
+                        line-height: 0.30rem;
+                        padding-top: 0.075rem;
+                        padding-bottom: 0.075rem;
+                        font-size: 0.16rem;
+                        .info{
+                            font-size: 0.14rem;
+                            color: #A0A0A0;
+                        }
+                    }
+                    &.tip{
+                        text-align:right;
+                        .price{
+                            font-size: 0.18rem;
+                            color: @activecolor;
+                        }
+                    }
+                    &:last-child{
+                        border-bottom: 0px;
+                    }
+                }
+            }
+            ul.listmenu{
+                padding-left: 0px;
+                li{
+                    font-size:0.16rem;
+                    line-height: 0.54rem;
+                    border-bottom: 1px solid @bgcolor;
+                    list-style-type: none;
+                    padding-left: 0.20rem;
+                    overflow: hidden;
+                    &.small{
+                        line-height: 0.36rem;
+                        clear: both;
+                        overflow: hidden;
+                        .title{
+                            margin-bottom: 0px;
+                        }
+                        .process{
+                            font-size: 0.14rem;
+                            padding: 0px;
+                            line-height: 0.24rem;
+                        }
+                        .glyphicon{
+                            margin-top: 0.16rem;
+                        }
+                    }
+                    a{
+                        color: @color;
+                        &.btn-primary{
+                            color: @bodyfontcolor;
+                            &.empty{
+                                background: none;
+                                color: @activecolor;
+                            }
+                        }
+                        &.playing{
+                            color: @activecolor;
+                        }
+                    }
+                    .glyphicon{
+                        vertical-align: text-bottom;
+                        margin-right: 0.10rem;
+                        &.pull-right{
+                            padding-top: 0.15rem;
+                        }
+                    }
+                    &:last-child{
+                        border-bottom: 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+.pages-footer{
+    position: fixed;
+    z-index: 9;
+    width:100%;
+    font-size: 0.14rem;
+    padding-top:0.04rem;
+    bottom: 0px;
+    overflow: hidden;
+    color:@color;
+    height: 0.6rem;
+    line-height: 0.24rem;
+    border-top:0.01rem gainsboro solid;
+    background-color: @bgcolor;
+    a{
+        color: @color;
+        glyphicon{
+            color: @iconcolor;
+        }
+    }
+    a.active{
+        color: @activecolor;
+        .glyphicon{
+            color: @activecolor;
+        }
+    }
+    .navibutton{
+        cursor: pointer;
+    }
+    .subpaperbtn{
+        border-radius: 0.22rem;
+        width:96%;
+        height: 0.44rem;
+        line-height: 0.30rem;
+        font-size: 0.16rem;
+    }
+}
+
+/*零散CSS*/

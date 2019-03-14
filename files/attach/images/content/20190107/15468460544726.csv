@@ -1,0 +1,594 @@
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>","<p>[[A]]对<span class=""math-tex"">(x = {-b pm sqrt{b^2-4ac} over 2a})</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,"1,2",3
+PDT,"<p>测试<a href=""http://127.0.0.1/nf2/index.php?exam-master-exams-modifyquestion&page=1&questionid=8"">判断</a>题<span class=""math-tex"">\(x = {-b \pm \sqrt{b^2-4ac} \over 2a}\)</span></p>","<p>[[A]]对<span class=""math-tex"">\(x = {-b \pm \sqrt{b^2-4ac} \over 2a}\)</span></p>
+
+<hr />
+<p>[[B]]错</p>",2,A,<p>B、错</p>,"1,2",3
+PDT,<p>测试判断题</p>,"<p>[[A]]对</p>
+
+<hr />
+<p>[[B]]错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,"1,3",3
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,1
+PDT,<p>测试判断题</p>,"<p>A、对</p>
+
+<p>B、错</p>",2,A,,3,3
+WDT,<p>测试问答题</p>,,4,<p>问答题答案</p>,,"2,3",3
