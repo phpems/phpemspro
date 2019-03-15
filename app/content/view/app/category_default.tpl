@@ -4,7 +4,7 @@
 <div class="container-fluid">
 	<div class="row-fluid panels">
 		<div class="pep panels">
-			<div class="col-xs-2">
+			<div class="col-xs-3">
 				<div class="leftmenu">
 					<div class="topbox">
 						分类导航
@@ -32,7 +32,7 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-xs-10 nopadding">
+			<div class="col-xs-9 nopadding">
 				<div class="panel panel-default pagebox border">
 					<div class="panel-heading bold">
 						{x2;$cat['catname']}
