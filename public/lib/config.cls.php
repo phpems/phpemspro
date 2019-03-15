@@ -50,9 +50,9 @@ class config
     );
 
     const aliyunsms = array(
-        'accessid' => 'LTAIV9vRehI439IJ',
-        'accesskey' => 'dTgVDffHfpmnOLkd7MTcD8Nm211aWW',
-        'signature' => '云考职宝'
+        'accessid' => 'LTAIV9vRe439IJ',
+        'accesskey' => 'dTgVDffHfpmn7MTcD8Nm211aWW',
+        'signature' => 'phpemspro'
     );
 
     const webpath = 'http://127.0.0.1/nf2/';
@@ -66,10 +66,10 @@ class config
     const systimezone = 'Asia/Shanghai';
 
     const usewechat = false;
-    const wxappid = 'wxf47089c7d3df7f47';
-    const wxsecret = '038305c974249f9d65690518bfc0585c';
+    const wxappid = 'wxf47087d3f7f47';
+    const wxsecret = '0383097424f9d65690518bfc0585c';
     const wxmchid = '1510646931';
-    const wxkey = 'YKZBAO32qrdsds341huefd242211oplk';
+    const wxkey = 'YKZBAO32qrdsd1huefd242211oplk';
 
     const aliappid = '2019011663020685';
     const alikey = 'MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDE4TlOKjcU02QA
