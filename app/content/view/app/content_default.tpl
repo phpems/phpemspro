@@ -29,9 +29,6 @@
 						</a>
                         {x2;endtree}
                         {x2;endif}
-						<li>
-							<img src="public/static/images/qrcode.jpg" width="100%"/>
-						</li>
 					</ul>
 				</div>
 			</div>

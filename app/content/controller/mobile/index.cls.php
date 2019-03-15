@@ -52,12 +52,6 @@ class index
 
         $lessons = lessons::getLessonList(array(),1,5);
 
-        $actives = orders::getActivesByArgs(array(
-            array("AND","activeusername = :activeusername","activeusername",\content\mobile::$_user['sessionusername']),
-            array("AND","activestatus = 0")
-        ));
-        \tpl::getInstance()->assign('actives',$actives);
-
         \tpl::getInstance()->assign('lessoncats',$lessoncats);
         \tpl::getInstance()->assign('lessons',$lessons);
         \tpl::getInstance()->assign('contents',$contents);
