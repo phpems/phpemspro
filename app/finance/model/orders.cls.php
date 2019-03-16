@@ -49,22 +49,6 @@ class orders
     static function addOrder($args)
     {
         $data = array('table' => 'orders','query' => $args);
-        if($args['ordertype'] == 'exam')
-        {
-            foreach($args['orderitems'] as $item)
-            {
-                $actargs = array();
-                $actargs['activename'] = $item['basicname'];
-                $actargs['activebasicid'] = $item['basicid'];
-                $actargs['activetime'] = $item['time'];
-                $actargs['activesubjectid'] = $item['subjectid'];
-                $actargs['activeorder'] = $args['ordersn'];
-                $actargs['activeordertime'] = TIME;
-                $actargs['activestatus'] = 0;
-                $actargs['activeusername'] = $args['orderusername'];
-                self::addActive($actargs);
-            }
-        }
         return \pepdo::getInstance()->insertElement($data);
     }
 
@@ -76,54 +60,6 @@ class orders
             'orderby' => 'ordersn desc'
         );
         return \pepdo::getInstance()->listElements($page,$number,$data);
-    }
-
-    static function addActive($args)
-    {
-        $data = array('table' => 'actives','query' => $args);
-        return \pepdo::getInstance()->insertElement($data);
-    }
-
-    static function getActiveByArgs($args)
-    {
-        $data = array(
-            'select' => false,
-            'table' => 'actives',
-            'query' => $args
-        );
-        return \pepdo::getInstance()->getElement($data);
-    }
-
-    static function getActivesByArgs($args)
-    {
-        $data = array(
-            'select' => false,
-            'table' => 'actives',
-            'query' => $args
-        );
-        return \pepdo::getInstance()->getElements($data);
-    }
-
-    static function modifyActive($id,$args)
-    {
-        $data = array(
-            'table' => 'actives',
-            'value' => $args,
-            'query' => array(
-                array("AND","activeid = :activeid","activeid",$id)
-            )
-        );
-        \pepdo::getInstance()->updateElement($data);
-    }
-
-    static function modifyActives($query,$args)
-    {
-        $data = array(
-            'table' => 'actives',
-            'value' => $args,
-            'query' => $query
-        );
-        \pepdo::getInstance()->updateElement($data);
     }
 
     static function getRegOrderList($args = array(),$page,$number = \config::webpagenumber)
