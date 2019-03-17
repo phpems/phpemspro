@@ -63,7 +63,7 @@
                     <div class="panel-heading blod" style="background: none;">
                         第{x2;$number}题 【{x2;$questypes[$question['questiontype']]['questype']}】
                         <a class="btn btn-default{x2;if:$favors[$question['questionid']]} btn-primary{x2;endif} pull-right" id="favorbutton"><i class="glyphicon glyphicon-star-empty"></i> 收藏</a>
-                        <a class="btn btn-default pull-right" id="errorbutton"><i class="glyphicon glyphicon-edit"></i> 纠错</a>
+                        <a class="btn btn-default pull-right" id="errorbutton" onclick="javascript:$('#submodal').modal();"><i class="glyphicon glyphicon-edit"></i> 纠错</a>
                         {x2;if:$number < $allnumber}
                         <a data-toggle="tooltip" data-placement="top" title="也可以使用键盘右方向键切换" class="btn btn-default pull-right" onclick="javascirpt:nextpage();"> 下一题 <i class="glyphicon glyphicon-chevron-right"></i></a>
                         {x2;endif}
@@ -252,6 +252,64 @@
                     </div>
                 </div>
                 {x2;endif}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="submodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">题型</h4>
+            </div>
+            <div class="modal-body">
+                <form action="index.php?exam-app-point-errors" method="post" class="form-horizontal" style="padding:20px;" id="reporterrorform">
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">错误类型：</label>
+                            <div class="col-sm-9">
+                                <div style="clear: both">
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" name="error[]" value="答案错误"><span>答案错误</span>
+                                    </label>
+                                </div>
+                                <div style="clear: both">
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" name="error[]" value="题干错误"><span>题干错误</span>
+                                    </label>
+                                </div>
+                                <div style="clear: both">
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" name="error[]" value="解析错误"><span>解析错误</span>
+                                    </label>
+                                </div>
+                                <div style="clear: both">
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" name="error[]" value="其他错误"><span>其他错误</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">详情描述：</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" name="errorcontent" style="height:80px;margin-top: 10px;" needle="needle" msg="请填写错误描述"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2"></label>
+                            <div class="col-sm-10">
+                                <button class="btn btn-primary hide btn-block" type="submit">提交</button>
+                                <input type="hidden" name="questionid" value="{x2;$question['questionid']}">
+                                <input type="hidden" name="adderrors" value="1">
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="javascript:$('#reporterrorform').submit();">提交</button>
             </div>
         </div>
     </div>

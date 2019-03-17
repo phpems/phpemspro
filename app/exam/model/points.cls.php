@@ -10,7 +10,7 @@ namespace exam\model;
 
 class points
 {
-    static function getSubjects($args,$orderby = 'subjectid desc')
+    static function getSubjects($args = array(),$orderby = 'subjectid desc')
     {
         $data = array(
             'table' => 'subjects',

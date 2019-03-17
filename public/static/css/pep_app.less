@@ -81,6 +81,36 @@
             border-radius: 0px;
             line-height: 40px;
         }
+        label{
+            line-height: 36px;
+            &.checkbox-inline span,&.radio-inline span{
+                display: inline-block;
+                vertical-align: center;
+                &:before{
+                    width: 20px;
+                    height: 20px;
+                    padding: 2px 3px;
+                    margin-right: 8px;
+                    border-radius: 16px;
+                    border: 1px solid @darkbordercolor;
+                    font-family: 'Glyphicons Halflings';
+                    content:'\e013';
+                    font-size: 14px;
+                    line-height: 14px;
+                    color: @darkbordercolor;
+                }
+            }
+        }
+        input{
+            &[type=checkbox],&[type=radio]{
+                display: none;
+                &:checked + span:before{
+                    background-color: @activecolor;
+                    border-color: @activecolor;
+                    color: #FFFFFF;
+                }
+            }
+        }
     }
 }
 .swiper-container{

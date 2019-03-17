@@ -56,7 +56,7 @@ class content
         return \pepdo::getInstance()->delElement($data);
     }
 
-    static public function getContentList($args,$page,$number = \config::webpagenumber,$orderby = 'contentid desc')
+    static public function getContentList($args,$page,$number = \config::webpagenumber,$orderby = 'contentorder desc,contentid desc')
     {
         $data = array(
             'table' => 'contents',

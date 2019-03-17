@@ -182,13 +182,6 @@ class basic
                     }
                 }
             }
-            $actives = orders::getActivesByArgs(array(
-                array("AND","activesubjectid = :activesubjectid","activesubjectid",$this->subject['subjectid']),
-                array("AND","activebasicid = :activebasicid","activebasicid",$this->basic['basicid']),
-                array("AND","activeusername = :activeusername","activeusername",\exam\app::$_user['sessionusername']),
-                array("AND","activestatus = 0")
-            ));
-            \tpl::getInstance()->assign('actives',$actives);
             \tpl::getInstance()->assign('lestprice',$lestprice);
             \tpl::getInstance()->assign('package',$package);
             \tpl::getInstance()->assign('training',$training);

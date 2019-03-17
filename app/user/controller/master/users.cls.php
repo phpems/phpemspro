@@ -196,6 +196,22 @@ class users
         exit(json_encode($message));
     }
 
+    public function batdel()
+    {
+        $delids = \route::get('delids');
+        foreach($delids as $userid => $p)
+        {
+            \user\model\users::delUser($userid);
+        }
+        $message = array(
+            'statusCode' => 200,
+            "message" => "删除成功",
+            "callbackType" => "forward",
+            "forwardUrl" => "reload"
+        );
+        exit(json_encode($message));
+    }
+
     public function index()
     {
         $page = \route::get('page');
