@@ -158,7 +158,7 @@ class login
                 );
                 exit(json_encode($message));
             }
-            $fargs = array('username' => $username,'userphone' => $phone,'usergroupid' => $defaultgroup['groupid'],'userpassword' => $args['userpassword'],'useremail' => $email);
+            $fargs = array('username' => $username,'userphone' => $phone,'usergroupid' => $defaultgroup['groupcode'],'userpassword' => $args['userpassword'],'useremail' => $email);
             $id = users::addUser($fargs);
             \session::getInstance()->setSessionUser(array('sessionuserid'=>$id,'sessionpassword'=>md5($args['userpassword']),'sessionip'=>\route::getClientIp(),'sessiongroupid'=>$defaultgroup['groupid'],'sessionlogintime'=>TIME,'sessionusername'=>$username));
             $message = array(
