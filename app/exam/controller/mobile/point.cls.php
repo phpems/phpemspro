@@ -137,6 +137,9 @@ class point
         {
             $args = \route::get('args');
             $args['noteusername'] = \exam\mobile::$_user['sessionusername'];
+            $args['notesubject'] = $this->subject['subjectid'];
+            $args['notetime'] = TIME;
+            $args['notestatus'] = 0;
             favor::saveNote($this->subject['subjectdb'],$args);
             $question = question::getQuestionById($this->subject['subjectdb'],$args['notequestionid']);
             if($question['questionparent'])
@@ -171,6 +174,7 @@ class point
             $args = array();
             $args[] = array("and","noteusername != :noteusername","noteusername",\exam\mobile::$_user['sessionusername']);
             $args[] = array("and","notequestionid = :notequestionid","notequestionid",$questionid);
+            $args[] = array("and","notestatus = 1");
             $notes = favor::getNoteList($this->subject['subjectdb'],$args,$page);
             \tpl::getInstance()->assign('page',$page);
             \tpl::getInstance()->assign('questionid',$questionid);

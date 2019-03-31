@@ -67,7 +67,7 @@
 						{x2;tree:v:questionrows['data'],question,qid}
                         {x2;eval:v:innerquestionindex ++;}
 
-						{x2;if:$questypes[v:question['questype']]['questsort']}
+						{x2;if:$questypes[v:question['questiontype']]['questsort']}
 						<div class="pages-box swiper-slide" data-questionid="{x2;v:question['questionid']}"{x2;if:$history['ehuseranswer'][v:question['questionid']] && !$questypes[v:question['questiontype']]['questsort']} data-useranswer="{x2;$history['ehuseranswer'][v:question['questionid']]}"{x2;endif} {x2;if:$questypes[v:question['questiontype']]['questsort']}data-sort="1" data-answer="A"{x2;else}data-sort="0" data-answer="{x2;v:question['questionanswer']}"{x2;endif}{x2;if:$favors[v:question['questionid']]} data-favor="1"{x2;endif}>
 							<div class="page-ele radius margin">
 								<h5 class="bigtitle col-xs-12">{x2;v:qid}/{x2;$history['ehsetting']['papersetting']['questype'][v:questype]['number']} {x2;$questypes[v:question['questiontype']]['questype']}</h5>

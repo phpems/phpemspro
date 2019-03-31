@@ -90,7 +90,7 @@ class setting
     public function deltrainings()
     {
         $trainingids = \route::get('delids');
-        foreach($trainingids as $key => $trainingid)
+        foreach($trainingids as $trainingid => $p)
         {
             $args = array(array("AND","subjecttrid = :subjecttrid","subjecttrid",$trainingid));
             if(points::getSubjectsNumber($args))

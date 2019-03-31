@@ -32,6 +32,58 @@ class exams
         }
     }
 
+    public function passnote()
+    {
+        $subjectid = $_SESSION['subjectid'];
+        $subject = points::getSubjectById($subjectid);
+        $noteid = \route::get('noteid');
+        favor::modifyNote($subject['subjectdb'],$noteid,array('notestatus' => 1));
+        $message = array(
+            'statusCode' => 200,
+            "message" => "操作成功",
+            "callbackType" => "forward",
+            "forwardUrl" => "reload"
+        );
+        exit(json_encode($message));
+    }
+
+    public function delnote()
+    {
+        $subjectid = $_SESSION['subjectid'];
+        $subject = points::getSubjectById($subjectid);
+        $noteid = \route::get('noteid');
+        favor::delNote($subject['subjectdb'],$noteid);
+        $message = array(
+            'statusCode' => 200,
+            "message" => "操作成功",
+            "callbackType" => "forward",
+            "forwardUrl" => "reload"
+        );
+        exit(json_encode($message));
+    }
+
+    public function notes()
+    {
+        if(\route::get('subjectid'))
+        {
+            $subjectid = \route::get('subjectid');
+            $_SESSION['subjectid'] = $subjectid;
+        }
+        else
+        {
+            $subjectid = $_SESSION['subjectid'];
+        }
+        $page = \route::get('page');
+        $page = $page > 1?$page:1;
+        $subject = points::getSubjectById($subjectid);
+        $args = array();
+        $args[] = array("AND","notesubject = :notesubject","notesubject",$subject['subjectid']);
+        $notes = favor::getNoteList($subject['subjectdb'],$args,$page,20,$orderby = 'notetime desc,noteid desc');
+        \tpl::getInstance()->assign('subject',$subject);
+        \tpl::getInstance()->assign('notes',$notes);
+        \tpl::getInstance()->display('exams_notes');
+    }
+
     public function delbasics()
     {
         $subjectid = $_SESSION['subjectid'];
@@ -422,13 +474,6 @@ class exams
 
     public function delsection()
     {
-        $message = array(
-            'statusCode' => 200,
-            "message" => "操作成功",
-            "callbackType" => "forward",
-            "forwardUrl" => "reload"
-        );
-        exit(json_encode($message));
         $sectionid = \route::get('sectionid');
         if(points::getPointsNumber(array(array("AND","pointsection = :sectionid","sectionid",$sectionid))))
         {

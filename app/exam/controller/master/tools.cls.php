@@ -8,6 +8,7 @@
 
 namespace exam\controller\master;
 
+use exam\model\favor;
 use exam\model\points;
 use exam\model\question;
 

@@ -36,6 +36,28 @@ class base
     {
         ini_set('date.timezone',config::systimezone);
         header('P3P: CP=CAO PSA OUR; Content-Type: text/html; charset='.config::webencode);
+        /**
+		if(\route::isWeixin())
+        {
+            wxpay::getInstance()->getwxopenid();
+            $user = \session::getInstance()->getSessionUser();
+            if(!$user['sessionuserid'] && $_SESSION['openid'])
+            {
+                $u = \user\model\users::getUserByOpenid($_SESSION['openid']);
+                if($u)
+                {
+                    $sessionuser = array(
+                        'sessionuserid' => $u['userid'],
+                        'sessionuserphone' => $u['userphone'],
+                        'sessionusername' => $u['username'],
+                        'sessionpassword' => $u['userpassword'],
+                        'sessiongroupcode' => $u['usergroupcode']
+                    );
+                    \session::getInstance()->setSessionUser($sessionuser);
+                }
+            }
+        }
+		**/
         self::$systime = time();
         $appname = (route::getUrl()?route::getUrl():config::defaultapp).'\\'.(route::getUrl('module')?route::getUrl('module'):'app');
         //$app = new $appname();

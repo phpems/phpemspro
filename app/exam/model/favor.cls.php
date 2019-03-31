@@ -115,6 +115,25 @@ class favor
         }
     }
 
+    static function modifyNote($dbid,$id,$args)
+    {
+        $data = array(
+            'table' => 'notes',
+            'value' => $args,
+            'query' => array(array("AND","noteid = :noteid","noteid",$id))
+        );
+        \pepdo::getInstance($dbid)->updateElement($data);
+    }
+
+    static function delNote($dbid,$id)
+    {
+        $data = array(
+            'table' => 'notes',
+            'query' => array(array("AND","noteid = :noteid","noteid",$id))
+        );
+        \pepdo::getInstance($dbid)->delElement($data);
+    }
+
     static function saveSingleRecord($dbid,$username,$pointid,$questionid,$answer)
     {
         $data = self::getRecordSession($dbid,$username);

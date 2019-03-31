@@ -54,7 +54,7 @@ class stats
         $right = array();
         $favor = array();
         $note = array();
-        foreach($points as $key => $point)
+        foreach($this->basic['basicpoints'] as $key => $point)
         {
             $rt = 0;
             $wg = 0;

@@ -72,6 +72,30 @@ class user
 
     public function index()
     {
-        \tpl::getInstance()->display('user_index');
+        $user = \user\model\users::getUserById(\user\mobile::$_user['sessionuserid']);
+        $group = \user\model\users::getGroupByCode($user['usergroupcode']);
+        $modelcode = $group['groupmodel'];
+        if(\route::get('modifyuser'))
+        {
+            $args = \route::get('args');
+            if(!$args['userpassword'])unset($args['userpassword']);
+            $properties = \database\model\model::getAllowPropertiesByModelcode($modelcode);
+            $args = \database\model\model::callModelFieldsFilter($args,$properties);
+            \user\model\users::modifyUser($user['userid'],$args);
+            $message = array(
+                'statusCode' => 200,
+                "message" => "修改成功"
+            );
+            exit(json_encode($message));
+        }
+        else
+        {
+            $properties = \database\model\model::getAllowPropertiesByModelcode($modelcode);
+            unset($user['userpassword']);
+            $forms = \html::buildHtml($properties,$user);
+            \tpl::getInstance()->assign('user',$user);
+            \tpl::getInstance()->assign('forms',$forms);
+            \tpl::getInstance()->display('user');
+        }
     }
 }

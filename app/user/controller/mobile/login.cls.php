@@ -189,6 +189,13 @@ class login
                         'sessiongroupcode' => $user['usergroupcode']
                     );
                     \session::getInstance()->setSessionUser($sessionuser);
+                    if(\route::isWeixin())
+                    {
+                        if(!$user['useropenid'] && $_SESSION['openid'])
+                        {
+                            users::modifyUser($user['userid'],array('useropenid' => $_SESSION['openid']));
+                        }
+                    }
                     $message = array(
                         'statusCode' => 200,
                         "message" => "登陆成功",

@@ -43,6 +43,17 @@ class users
         return \pepdo::getInstance()->getElement($data);
     }
 
+    static function getUserByOpenid($openid)
+    {
+        $data = array(
+            'table' => 'users',
+            'query' => array(
+                array("AND","useropenid = :useropenid","useropenid",$openid)
+            )
+        );
+        return \pepdo::getInstance()->getElement($data);
+    }
+
     static function getUserByPhone($phone)
     {
         $data = array(
