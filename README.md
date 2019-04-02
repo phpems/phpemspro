@@ -12,5 +12,6 @@ CKPLAYER
 Bootstrap3  
 Jquery  
 FineUploader  
+Swiper3  
 微信支付官方sdk  
 支付宝支付官方sdk  
