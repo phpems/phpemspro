@@ -9,6 +9,7 @@ REDIS
 # 项目中运用到的开源软件或SDK
 CKEDITOR  
 CKPLAYER  
+Bootstrap3  
 Jquery  
 FineUploader  
 微信支付官方sdk  
