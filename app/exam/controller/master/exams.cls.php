@@ -560,6 +560,31 @@ class exams
         }
     }
 
+    public function delsubjects()
+    {
+        $delids = \route::get('delids');
+        foreach($delids as $subjectid => $p)
+        {
+            if(points::getSectionsNumber(array(array("AND","sectionsubject = :subjectid","subjectid",$subjectid))))
+            {
+                $subject = points::getSubjectById($subjectid);
+                $message = array(
+                    'statusCode' => 300,
+                    "message" => "操作失败，请删除科目《{$subject['subjectname']}》下所有章节"
+                );
+                exit(json_encode($message));
+            }
+            points::delSubject($subjectid);
+        }
+        $message = array(
+            'statusCode' => 200,
+            "message" => "操作成功",
+            "callbackType" => "forward",
+            "forwardUrl" => "reload"
+        );
+        exit(json_encode($message));
+    }
+
     public function delsubject()
     {
         $subjectid = \route::get('subjectid');

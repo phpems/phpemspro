@@ -40,6 +40,19 @@ class lessons
         exit();
     }
 
+    public function delvideo()
+    {
+        $videoid = \route::get('videoid');
+        \lesson\model\lessons::delVideo($videoid);
+        $message = array(
+            'statusCode' => 200,
+            "message" => "操作成功",
+            "callbackType" => "forward",
+            "forwardUrl" => "reload"
+        );
+        exit(json_encode($message));
+    }
+
     public function modifyvideo()
     {
         $videoid = \route::get('videoid');

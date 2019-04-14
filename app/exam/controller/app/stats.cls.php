@@ -60,11 +60,11 @@ class stats
             $wg = 0;
             foreach($point as $p)
             {
-                $numbers[$p['pointid']] = question::getQuestionNumberByPointid($this->subject['subjectdb'],$p['pointid']);
-                $favor[$key] += intval(\pedis::getInstance()->getHashData('favornumber',\exam\app::$_user['sessionusername'].'-'.$this->subject['subjectdb'].'-'.$p['pointid']));
-                $note[$key] += intval(\pedis::getInstance()->getHashData('notenumber',\exam\app::$_user['sessionusername'].'-'.$this->subject['subjectdb'].'-'.$p['pointid']));
-                $rt += $record['recordnumber'][$p['pointid']]['right'];
-                $wg += $record['recordnumber'][$p['pointid']]['wrong'];
+                $numbers[$p] = question::getQuestionNumberByPointid($this->subject['subjectdb'],$p);
+                $favor[$key] += intval(\pedis::getInstance()->getHashData('favornumber',\exam\app::$_user['sessionusername'].'-'.$this->subject['subjectdb'].'-'.$p));
+                $note[$key] += intval(\pedis::getInstance()->getHashData('notenumber',\exam\app::$_user['sessionusername'].'-'.$this->subject['subjectdb'].'-'.$p));
+                $rt += $record['recordnumber'][$p]['right'];
+                $wg += $record['recordnumber'][$p]['wrong'];
             }
             $wrong[$key] = intval($wg);
             $right[$key] = intval($rt);
