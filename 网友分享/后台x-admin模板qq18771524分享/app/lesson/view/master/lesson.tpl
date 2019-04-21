@@ -86,7 +86,7 @@
 													<li><a href="index.php?lesson-master-lessons-members&lessonid={x2;v:lesson['lessonid']}&page={x2;$page}{x2;$u}" title="成员">成员</a></li>
 													<li><a href="index.php?lesson-master-lessons-videos&lessonid={x2;v:lesson['lessonid']}&page={x2;$page}{x2;$u}" title="课件">课件</a></li>
 													<li><a href="index.php?lesson-master-lessons-modify&lessonid={x2;v:lesson['lessonid']}&page={x2;$page}{x2;$u}" title="修改">修改</a></li>
-													<li><a class="confirm" href="index.php?lesson-master-lessons-del&lessonsid={x2;v:lesson['lessonid']}&page={x2;$page}{x2;$u}" title="删除">删除</a></li>
+													<li><a class="confirm" href="index.php?lesson-master-lessons-del&lessonid={x2;v:lesson['lessonid']}&page={x2;$page}{x2;$u}" title="删除">删除</a></li>
 												</ul>
 											</td>
 										</tr>

@@ -65,10 +65,10 @@ class users
                                     $u = \user\model\users::getUserByPhone($args['userphone']);
                                     if(!$u)
                                     {
-                                        $args['userphone'] = $data[2];
+                                        $args['useremail'] = $data[2];
                                         if(!$data[3])$data[3] = '111111';
                                         $args['userpassword'] = md5($data[3]);
-                                        $args['usergroupid'] = $defaultgroup['groupid'];
+                                        $args['usergroupcode'] = $defaultgroup['groupcode'];
                                         $i = 4;
                                         foreach($tpfields as $p)
                                         {
@@ -87,7 +87,7 @@ class users
                     'statusCode' => 200,
                     "message" => "操作成功",
                     "callbackType" => "forward",
-                    "forwardUrl" => "index.php?user-master-user"
+                    "forwardUrl" => "index.php?user-master-users"
                 );
                 exit(json_encode($message));
             }

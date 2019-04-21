@@ -418,25 +418,26 @@ class WxPayApi
  	 * 回调类成员函数方法:notify(array($this, you_function));
  	 * $callback  原型为：function function_name($data){}
  	 */
-	public static function notify($config, $callback, &$msg)
-	{
-		if (!isset($GLOBALS['HTTP_RAW_POST_DATA'])) {
-			# 如果没有数据，直接返回失败
-			return false;
-		}
+    public static function notify($config, $callback, &$msg)
+    {
+//		if (!isset($GLOBALS['HTTP_RAW_POST_DATA'])) {
+//			# 如果没有数据，直接返回失败
+//			return false;
+//		}
 
-		//如果返回成功则验证签名
-		try {
-			//获取通知的数据
-			$xml = $GLOBALS['HTTP_RAW_POST_DATA'];
-			$result = WxPayNotifyResults::Init($config, $xml);
-		} catch (WxPayException $e){
-			$msg = $e->errorMessage();
-			return false;
-		}
-		
-		return call_user_func($callback, $result);
-	}
+        //如果返回成功则验证签名
+        try {
+            //获取通知的数据
+            //$xml = $GLOBALS['HTTP_RAW_POST_DATA'];
+            $xml = file_get_contents("php://input");
+            $result = WxPayNotifyResults::Init($config, $xml);
+        } catch (WxPayException $e){
+            $msg = $e->errorMessage();
+            return false;
+        }
+
+        return call_user_func($callback, $result);
+    }
 	
 	/**
 	 * 
