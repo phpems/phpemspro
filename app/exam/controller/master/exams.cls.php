@@ -32,6 +32,40 @@ class exams
         }
     }
 
+    public function ordernote()
+    {
+        $subjectid = $_SESSION['subjectid'];
+        $subject = points::getSubjectById($subjectid);
+        $delids = \route::get('delids');
+        $action = \route::get('action');
+        switch($action)
+        {
+            case 'pass':
+            foreach($delids as $key => $v)
+            {
+                favor::modifyNote($subject['subjectdb'],$key,array('notestatus' => 1));
+            }
+            break;
+
+            case 'delete':
+            foreach($delids as $key => $v)
+            {
+                favor::delNote($subject['subjectdb'],$key);
+            }
+            break;
+
+            default:
+            break;
+        }
+        $message = array(
+            'statusCode' => 200,
+            "message" => "操作成功",
+            "callbackType" => "forward",
+            "forwardUrl" => "reload"
+        );
+        exit(json_encode($message));
+    }
+
     public function passnote()
     {
         $subjectid = $_SESSION['subjectid'];

@@ -73,21 +73,21 @@ class index
         {
             if($action == 'findpassword')
             {
-                $params["TemplateCode"] = "SMS_123456";
+                $params["TemplateCode"] = \config::aliyunsms['findpasstpl'];
             }
         }
         else
         {
             if($action == 'reg')
             {
-                $params["TemplateCode"] = "SMS_123456";
+                $params["TemplateCode"] = \config::aliyunsms['regtpl'];
             }
         }
 
         // fixme 可选: 设置模板参数, 假如模板中存在变量需要替换则为必填项
         $params['TemplateParam'] = Array (
-            "usercode" => $randcode,
-            "username" => $phonenumber
+            "code" => $randcode,
+            "name" => $phonenumber
         );
 
         // fixme 可选: 设置发送短信流水号

@@ -110,7 +110,7 @@
 											<input type="radio" name="action" value="delete" />删除
 										</label>
 										{x2;tree:$search,arg,sid}
-										<input type="hidden"-name="search[{x2;v:key}]" value="{x2;v:arg}"/>
+										<input type="hidden" name="search[{x2;v:key}]" value="{x2;v:arg}"/>
 										{x2;endtree}
 										<label class="radio-inline">
 											<button class="btn btn-primary" type="submit">提交</button>
