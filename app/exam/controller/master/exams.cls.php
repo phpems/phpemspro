@@ -1121,6 +1121,54 @@ class exams
         }
     }
 
+    public function delquestion()
+    {
+        $subjectid = $_SESSION['subjectid'];
+        $subject = points::getSubjectById($subjectid);
+        $questionid = \route::get('questionid');
+        question::delQuestion($subject['subjectdb'],$questionid);
+        $question = question::getQuestionById($subject['subjectdb'],$questionid);
+        if($question['questionparent'])
+        question::resetRowsQuestionNumber($subject['subjectdb'],$question['questionparent']);
+        $message = array(
+            'statusCode' => 200,
+            "message" => "操作成功",
+            "callbackType" => "forward",
+            "forwardUrl" => "reload"
+        );
+        exit(json_encode($message));
+    }
+
+    public function orderchildquestion()
+    {
+        $action = \route::get('action');
+        $delids = \route::get('delids');
+        $subjectid = $_SESSION['subjectid'];
+        $subject = points::getSubjectById($subjectid);
+        switch ($action)
+        {
+            case 'sequence':
+                foreach ($delids as $key => $p)
+                {
+                    question::modifyQuestion($subject['subjectdb'],$key,array('questionorder' => $p));
+                }
+                $question = question::getQuestionById($subject['subjectdb'],$key);
+                if($question['questionparent'])
+                question::resetRowsQuestionNumber($subject['subjectdb'],$question['questionparent']);
+                break;
+
+            default:
+                break;
+        }
+        $message = array(
+            'statusCode' => 200,
+            "message" => "操作成功",
+            "callbackType" => "forward",
+            "forwardUrl" => "reload"
+        );
+        exit(json_encode($message));
+    }
+
     public function addchildquestion()
     {
         $subjectid = $_SESSION['subjectid'];

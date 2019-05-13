@@ -102,7 +102,7 @@ class basic
                             'statusCode' => 200,
                             "message" => "下单成功！",
                             "callbackType" => "forward",
-                            "forwardUrl" => 'index.php?user-mobile-user-orderdetail&ordersn='.$args['ordersn']
+                            "forwardUrl" => 'index.php?user-mobile-user-wxpay&ordersn='.$args['ordersn']
                         );
                         \route::urlJump($message);
                     }

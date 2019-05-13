@@ -87,7 +87,17 @@ class clear
 
     public function answers()
     {
-        \pedis::getInstance()->delHashData('records',\exam\mobile::$_user['sessionusername'].'-'.$this->subject['subjectdb']);
+        $record = favor::getRecordSession($this->subject['subjectdb'],\exam\mobile::$_user['sessionusername']);
+		foreach($this->basic['basicpoints'] as $ps)
+        {
+            foreach($ps as $pointid)
+            {
+                unset($record['recordright'][$pointid]);
+				unset($record['recordwrong'][$pointid]);
+				unset($record['recordnumber'][$pointid]);
+            }
+        }
+		\pedis::getInstance()->setHashData('records',\exam\mobile::$_user['sessionusername'].'-'.$this->subject['subjectdb'],json_encode($record));
         favor::delRecord($this->subject['subjectdb'],\exam\mobile::$_user['sessionusername']);
         $message = array(
             'statusCode' => 200,

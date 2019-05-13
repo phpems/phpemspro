@@ -187,6 +187,18 @@
 								</div>
 							</div>
 							{x2;endif}
+                            {x2;if:$questypes[v:question['questiontype']]['questsort']}
+							<div class="page-ele radius hide">
+								<h5 class="bigtitle col-xs-12">参考答案</h5>
+								<div class="clear question">
+                                    {x2;if:v:question['questionanswer']}
+                                    {x2;v:question['questionanswer']}
+                                    {x2;else}
+									本题暂无参考答案
+                                    {x2;endif}
+								</div>
+							</div>
+                            {x2;endif}
 							<div class="page-ele radius hide">
 								<h5 class="bigtitle col-xs-12">解析</h5>
 								<div class="clear question">
