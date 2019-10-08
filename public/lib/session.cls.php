@@ -30,6 +30,16 @@ class session
         return self::$instance;
 	}
 
+    private function _getOnlySessionid()
+    {
+        $code = uniqid(\route::getClientIp().print_r($_SERVER,true).microtime()).rand(100000,999999);
+        $this->sessionid = md5($code);
+        if($this->getSessionValue($this->sessionid))
+        {
+            $this->_getOnlySessionid();
+        }
+    }
+
     //获取会话ID
     public function getSessionId()
     {
@@ -41,15 +51,17 @@ class session
 				$this->sessionid = $cookie['sessionid'];
 			}
     	}
-    	if(!$this->sessionid)
-    	{
-    		$this->sessionid = session_id();
-    	}
+        if(!$this->sessionid)
+        {
+            $this->_getOnlySessionid();
+            pedis::getInstance($this->parm)->setHashData('session',$this->sessionid,json_encode(array('sessionip'=>route::getClientIp())));
+            route::setCookie(self::$sessionname,strings::encode(array('sessionid' => $this->sessionid,'sessionip'=>route::getClientIp())));
+        }
     	if(!$this->getSessionValue($this->sessionid))
 		{
 			pedis::getInstance($this->parm)->setHashData('session',$this->sessionid,json_encode(array('sessionip'=>route::getClientIp())));
+            route::setCookie(self::$sessionname,strings::encode(array('sessionid' => $this->sessionid,'sessionip'=>route::getClientIp())));
 		}
-
     	return $this->sessionid;
     }
 
@@ -115,7 +127,8 @@ class session
                 pedis::getInstance($this->parm)->setHashData('users',$args['sessionuserid'],$this->sessionid);
 			}
             pedis::getInstance($this->parm)->setHashData('session',$this->sessionid,json_encode($args));
-            route::setCookie(self::$sessionname,strings::encode($args),3600*24);
+	    	$args['sessionid'] = $this->sessionid;
+            route::setCookie(self::$sessionname,strings::encode($args));
 	    	return true;
     	}
     }

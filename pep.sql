@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : localhost_3306
-Source Server Version : 50554
+Source Server Version : 50717
 Source Host           : localhost:3306
 Source Database       : pep
 
 Target Server Type    : MYSQL
-Target Server Version : 50554
+Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2019-03-15 10:55:46
+Date: 2019-10-08 09:14:07
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,7 +34,7 @@ CREATE TABLE `x2_actives` (
   KEY `activebasicid` (`activebasicid`),
   KEY `activeorder` (`activeorder`),
   KEY `activeusername` (`activeusername`)
-) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of x2_actives
@@ -64,6 +64,8 @@ INSERT INTO `x2_actives` VALUES ('22', '18568263814', '初级经济法', '4', '2
 INSERT INTO `x2_actives` VALUES ('23', '18568263814', '初级实务', '6', '3', '201903012054565', '1551444879', '366', '1');
 INSERT INTO `x2_actives` VALUES ('24', '18568263814', '初级经济法', '4', '2', '201903031633222', '1551602027', '366', '1');
 INSERT INTO `x2_actives` VALUES ('25', '18568263814', '初级实务', '6', '3', '201903031633222', '1551602027', '366', '1');
+INSERT INTO `x2_actives` VALUES ('26', 'peadmin', '初级经济法', '4', '2', '201903161556282', '1552723012', '366', '1');
+INSERT INTO `x2_actives` VALUES ('27', 'peadmin', '初级实务', '6', '3', '201903161556282', '1552723012', '366', '0');
 
 -- ----------------------------
 -- Table structure for `x2_apps`
@@ -86,7 +88,7 @@ CREATE TABLE `x2_apps` (
 -- ----------------------------
 INSERT INTO `x2_apps` VALUES ('1', 'core', '全局', '', '1', '');
 INSERT INTO `x2_apps` VALUES ('2', 'database', '数据库', '', '1', '');
-INSERT INTO `x2_apps` VALUES ('3', 'user', '用户', '', '1', '{\"closeregist\":\"0\",\"registype\":\"0\",\"managemodel\":\"0\",\"loginmodel\":\"1\",\"emailverify\":\"1\",\"emailaccount\":\"3048221737@qq.com\",\"emailpassword\":\"azmoupcjxngyddig\",\"regfields\":\"\",\"contenttext\":\"&lt;h2&gt;感谢订购毕过题库产品和服务&lt;\\/h2&gt;\\r\\n\\r\\n&lt;p&gt;1.重要提醒&lt;\\/p&gt;\\r\\n\\r\\n&lt;p&gt;初级会计会员、中级会计会员，加入会员QQ群 &amp;nbsp;&amp;nbsp;&amp;nbsp;享受多位专业高深资质会计老师，QQ群内随时在线解答服务&lt;\\/p&gt;\\r\\n\\r\\n&lt;p&gt;毕过VIP初级会计4群 &amp;nbsp;&amp;nbsp;&amp;nbsp;643919295&lt;\\/p&gt;\\r\\n\\r\\n&lt;p&gt;毕过VIP中级会计2群&amp;nbsp;&amp;nbsp;719691646&lt;\\/p&gt;\\r\\n\\r\\n&lt;p&gt;加群验证备注：&amp;ldquo;毕过题库+QQ&amp;rdquo; （开通题库时填写的手机号）&lt;\\/p&gt;\\r\\n\\r\\n&lt;p&gt;毕过题库CPA2群:808736505(注：注会群无在线解答服务)&lt;\\/p&gt;\\r\\n\\r\\n&lt;p&gt;2、你订购的产品目录：&lt;\\/p&gt;\\r\\n\\r\\n&lt;p&gt;@ {productname}&lt;\\/p&gt;\\r\\n\\r\\n&lt;p&gt;3、账户信息如下：&lt;\\/p&gt;\\r\\n\\r\\n&lt;p&gt;用户名：{username}&lt;\\/p&gt;\\r\\n\\r\\n&lt;p&gt;密码：{password}&lt;\\/p&gt;\\r\\n\\r\\n&lt;p&gt;开通题库后，请即时修改密码！&lt;\\/p&gt;\\r\\n\\r\\n&lt;p&gt;4、使用说明如下：&lt;\\/p&gt;\\r\\n\\r\\n&lt;p&gt;题库电脑答题网址：&lt;\\/p&gt;\\r\\n\\r\\n&lt;p&gt;http:\\/\\/www.biguotiku.com&lt;\\/p&gt;\\r\\n\\r\\n&lt;p&gt;手机答题扫描以下公众微信号或关注微信公众号：biguotiku365 &amp;nbsp;&amp;nbsp;&amp;nbsp;进入答题&lt;\\/p&gt;\"}');
+INSERT INTO `x2_apps` VALUES ('3', 'user', '用户', '', '1', '{\"closeregist\":\"0\",\"registype\":\"1\",\"managemodel\":\"0\",\"loginmodel\":\"1\",\"emailverify\":\"0\",\"emailaccount\":\"3048221737@qq.com\",\"emailpassword\":\"azmoupcjxngyddig\",\"regfields\":\"usergroupcode\"}');
 INSERT INTO `x2_apps` VALUES ('4', 'exam', '考试', '', '1', '{\"selectortype\":\"A,B,C,D,E,F,G,H,I\",\"selectornumbers\":\"0,2,3,4,5,6,7,8,9\",\"selectormodel\":\"1\",\"outfields\":\"userrealname,ehscore,ehstarttime,ehtime\"}');
 INSERT INTO `x2_apps` VALUES ('5', 'content', '内容', '', '1', '');
 INSERT INTO `x2_apps` VALUES ('6', 'finance', '财务', '', '1', '');
@@ -109,19 +111,22 @@ CREATE TABLE `x2_basics` (
   `basicprice` tinytext NOT NULL,
   `basicbook` int(11) DEFAULT NULL,
   `basicclosed` int(1) NOT NULL DEFAULT '0',
+  `basictop` int(1) DEFAULT NULL,
   `basicdescribe` text NOT NULL,
   PRIMARY KEY (`basicid`),
   KEY `basicexamid` (`basicarea`),
   KEY `basicsubjectid` (`basicsubject`),
   KEY `basicdemo` (`basicdemo`),
-  KEY `basicclosed` (`basicclosed`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  KEY `basicclosed` (`basicclosed`),
+  KEY `basictop` (`basictop`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of x2_basics
 -- ----------------------------
-INSERT INTO `x2_basics` VALUES ('2', '初级经济法', '河南', '4', '', '', '', '0', 'files/attach/images/content/20190103/15465119292564.jpg', '年卡:366:120.5', '1', '0', '河南初级经济法');
-INSERT INTO `x2_basics` VALUES ('3', '测试考场', '全国', '6', '[1]', '{\"1\":{\"3\":\"3\"}}', '{\"changesequence\":\"0\",\"auto\":\"\",\"autotemplate\":\"exampaper_paper\",\"self\":\"\",\"selftemplate\":\"exam_paper\",\"opentime\":{\"start\":false,\"end\":false},\"selectrule\":\"0\",\"examnumber\":\"0\",\"notviewscore\":\"0\",\"allowgroup\":\"\"}', '1', 'app/core/styles/images/noimage.gif', '', null, '0', '');
+INSERT INTO `x2_basics` VALUES ('2', '初级经济法', '河南', '4', '', '', '', '0', 'files/attach/images/content/20190103/15465119292564.jpg', '年卡:366:120.5', '1', '0', null, '河南初级经济法');
+INSERT INTO `x2_basics` VALUES ('3', '测试考场', '全国', '6', '[1]', '{\"1\":{\"3\":\"3\"}}', '{\"changesequence\":\"0\",\"auto\":\"\",\"autotemplate\":\"exampaper_paper\",\"self\":\"\",\"selftemplate\":\"exam_paper\",\"opentime\":{\"start\":false,\"end\":false},\"selectrule\":\"0\",\"examnumber\":\"0\",\"notviewscore\":\"0\",\"allowgroup\":\"\"}', '1', 'app/core/styles/images/noimage.gif', '', null, '0', null, '');
+INSERT INTO `x2_basics` VALUES ('4', '士大夫士大夫', '1', '9', '[4]', '{\"4\":{\"7\":\"7\"}}', '{\"changesequence\":\"0\",\"auto\":\"8\",\"autotemplate\":\"exampaper_paper\",\"self\":\"8\",\"selftemplate\":\"exam_paper\",\"opentime\":{\"start\":false,\"end\":false},\"selectrule\":\"0\",\"examnumber\":\"0\",\"notviewscore\":\"0\",\"allowgroup\":\"\"}', '0', 'app/core/styles/images/noimage.gif', '', '1', '0', '0', '');
 
 -- ----------------------------
 -- Table structure for `x2_category`
@@ -157,7 +162,7 @@ INSERT INTO `x2_category` VALUES ('5', 'content', '0', '初级报考', 'app/core
 DROP TABLE IF EXISTS `x2_contents`;
 CREATE TABLE `x2_contents` (
   `contentid` int(11) NOT NULL AUTO_INCREMENT,
-  `contentcatid` int(11) DEFAULT NULL,
+  `contentcatid` int(11) NOT NULL,
   `contenttitle` varchar(180) NOT NULL,
   `contentthumb` varchar(240) NOT NULL,
   `contentmodelcode` varchar(36) NOT NULL,
@@ -165,7 +170,7 @@ CREATE TABLE `x2_contents` (
   `contenttext` mediumtext NOT NULL,
   `contentauthor` varchar(48) NOT NULL,
   `contenttime` int(11) NOT NULL,
-  `contentorder` int(11) DEFAULT NULL,
+  `contentorder` int(11) NOT NULL,
   `contenttpl` varchar(48) NOT NULL,
   PRIMARY KEY (`contentid`),
   KEY `contentauthor` (`contentauthor`),
@@ -179,10 +184,10 @@ CREATE TABLE `x2_contents` (
 -- Records of x2_contents
 -- ----------------------------
 INSERT INTO `x2_contents` VALUES ('4', '1', '第二个滚动广告', 'files/attach/images/content/20190114/15473958847004.png', 'news', '', '', '', '1547308800', '0', '');
-INSERT INTO `x2_contents` VALUES ('5', '2', '北约应就华为达成共识，中国是巨大市场', 'files/attach/images/content/20190113/15473939189664.png', 'news', '“中国市场巨大。”波兰指明华为员工被捕与华为公司无直接联系后，该国内政部长称希望与中国保持良好关系，又呼吁欧盟和北约就是否将华为排除在本国市场之外达成共识。不过，波兰已经在全面研究华为参与当地5G建设的情况。', '&lt;p&gt;据路透社当地时间1月12日报道，波兰内政部长布鲁辛斯基（Joachim Brudzinski）当天向该国广播电台RMF FM（该国第一个商业广播电台）表示，波兰希望继续与中国合作，但需要就是否将华为排除在某些市场之外进行讨论。&amp;ldquo;北约内部对华为也有担忧，欧盟及北约成员国应该采取共同立场。&amp;rdquo;&lt;/p&gt;\r\n\r\n&lt;p&gt;与此同时，波兰安全部门负责人指出，针对华为驻波兰员工的指控与个人行为有关，与华为公司没有直接联系。&lt;/p&gt;\r\n\r\n&lt;p&gt;尽管如此，路透社援引波兰媒体Money.pl称，波兰数字化事务部副部长透露，华沙正在全面分析华为参与该国5G建设的情况。&lt;/p&gt;\r\n\r\n&lt;p&gt;分析人士指出，西方国家考虑是否将华为排除在本国市场之外时，都必须考虑该决定对其5G发展速度和成本造成的影响。&lt;/p&gt;\r\n\r\n&lt;p&gt;在此基础上，波兰内政部长表示，&amp;ldquo;我们希望能保持良好、密切和互有吸引力的波中关系。中国是个巨大的市场。&amp;rdquo;&lt;/p&gt;\r\n\r\n&lt;p&gt;据观察者网此前报道，华为波兰代表处员工王伟晶因涉嫌违反波兰法律被逮捕调查，同时被捕的还有一名波兰国家安全局前高级官员，但两人均未认罪。&lt;/p&gt;', 'redrangon', '1547308800', '0', '');
-INSERT INTO `x2_contents` VALUES ('6', '2', '签订马关条约时，日本人想拉拢李鸿章，不料竟得到这样的回复', 'files/attach/images/content/20190113/15473940365537.png', 'news', '晚清末年在慈禧的统治下，中国已经处于被列强欺辱的状态，各种丧权辱国的条约签了不知多少，慈禧对此却不以为然，她只要自己过得好就行，那管老百姓的死活，而签订这些条约又不要她亲自出手，基本都是李鸿章去签的。', '&lt;p&gt;李鸿章是晚清名臣，日本首相伊藤博文对他评价很高：&amp;quot;唯一有能力可跟世界列强一争高下之人。&amp;quot;李鸿章每次跟外国人打交道，中国都处于弱势地位，但李鸿章往往不卑不亢，能很好的完成任务，假若当时清朝强盛一点，李鸿章肯定更加闻名世界。&lt;/p&gt;\r\n\r\n&lt;p&gt;尽管李鸿章力挽狂澜，但仍旧不能挽救清朝大厦即将倒塌的命运，毛主席评价李鸿章时，用&amp;quot;水浅而舟大也&amp;quot;来形容，是相当适宜的。作为晚清栋梁之才，又深受日本人青睐，李鸿章跟日本人打交道时，还曾被对方拉拢。&lt;/p&gt;\r\n\r\n&lt;p&gt;中日甲午战争失败后，中日双方签订了《马关条约》，跟以往一样，慈禧不需要亲自出面，这些条约都由李鸿章签订，据说在马关条约的谈判现场，日本首相伊藤博文对李鸿章的文韬武略十分欣赏，甚至还向他抛出橄榄枝。&lt;/p&gt;\r\n\r\n&lt;p&gt;伊藤博文曾对李鸿章说：&amp;quot;如果你肯为日本效力，得到的好处会更多！&amp;quot;李鸿章自然知道对方在挖墙脚，面对日本人的引诱，李鸿章没有回答任何一句话，只是麻木的一笑，反而搞得伊藤博文尴尬起来，不知该如何应对了。&lt;/p&gt;\r\n\r\n&lt;p&gt;很明显李鸿章并没有接受日本人的邀请，他宁愿继续为清朝卖命，有人推测李鸿章之所以拒绝日本，是因为害怕后世的千古骂名，他已经签订了许多卖国条约，如果他再跳槽到日本，恐怕真的是生生世世要背上卖国贼的骂名。&lt;/p&gt;', 'redrangon', '1547308800', '0', '');
-INSERT INTO `x2_contents` VALUES ('7', '2', '房屋出租人信息不要填了', 'files/attach/images/content/20190121/15480024019382.png', 'news', '1月20日，记者发现个人所得税APP有更新。从更新的内容看，不再强制要求填写出租人信息。这意味着租客此前遇到的填也难不填也难的困局得以缓和，房东与租客之间的博弈就此搁置。房东也不必担心出租信息泄露而被追溯租赁税费了。', '&lt;p&gt;记者登录个人所得税APP后，在住房租金信息填写中，当出租方类型选择为&amp;ldquo;自然人&amp;rdquo;时，出租人姓名和出租人身份证号码为&amp;ldquo;请输入&amp;rdquo;状态；当出租方类型选择为&amp;ldquo;组织&amp;rdquo;时，出租单位名称为&amp;ldquo;请填写&amp;rdquo;。&lt;/p&gt;\r\n\r\n&lt;p&gt;而该APP更新后，当出租方类型选择为&amp;ldquo;自然人&amp;rdquo;时，出租人姓名和出租人身份证号码变为&amp;ldquo;选填&amp;rdquo;状态；当出租方类型选择为&amp;ldquo;组织&amp;rdquo;时，出租单位名称也变为&amp;ldquo;选填&amp;rdquo;状态。&lt;/p&gt;\r\n\r\n&lt;p&gt;业内人士认为，此前由于租客填报租房个税抵扣需要征得房东同意，而房东顾虑到身份信息泄露、可能会被追溯补缴房屋租赁税费等原因，变相提出&amp;ldquo;涨租&amp;rdquo;要求，引发了房东与租客之间的博弈。此次个人所得税APP的更新应该可以打消房东的担心了。&lt;/p&gt;\r\n\r\n&lt;p&gt;此前，很多网友在社交媒体上反映，自己向房东索要其身份信息，但遭到拒绝，房东以提交信息后可能被征税为由，规劝租客不要申报个税租金扣除，甚至有房东还表示如果进行扣除就要租客退房。&lt;/p&gt;\r\n\r\n&lt;p&gt;一边是个税可能抵扣几十块，另一边是房租可能上涨几百块，权衡之下，很多租客被迫选择不再申报租金支出扣除，无法享受到国家发放的个税减税红包。现在不再强填，租客可以享受惠民政策了。&lt;/p&gt;', 'peadmin', '1548000000', '0', '');
-INSERT INTO `x2_contents` VALUES ('8', '2', '朝鲜友好艺术团将对中国进行访问演出', 'files/attach/images/content/20190121/15480024113956.png', 'news', '应中共中央对外联络部邀请，朝鲜劳动党中央政治局委员、中央副委员长、国际部部长李洙墉率朝鲜友好艺术团于1月23日起对中国进行访问演出。', '&lt;h2&gt;感谢订购毕过题库产品和服务&lt;/h2&gt;\r\n\r\n&lt;p&gt;1.重要提醒&lt;/p&gt;\r\n\r\n&lt;p&gt;初级会计会员、中级会计会员，加入会员QQ群 &amp;nbsp;&amp;nbsp;&amp;nbsp;享受多位专业高深资质会计老师，QQ群内随时在线解答服务&lt;/p&gt;\r\n\r\n&lt;p&gt;毕过VIP初级会计4群 &amp;nbsp;&amp;nbsp;&amp;nbsp;643919295&lt;/p&gt;\r\n\r\n&lt;p&gt;毕过VIP中级会计2群&amp;nbsp;&amp;nbsp;719691646&lt;/p&gt;\r\n\r\n&lt;p&gt;加群验证备注：&amp;ldquo;毕过题库+QQ&amp;rdquo; （开通题库时填写的手机号）&lt;/p&gt;\r\n\r\n&lt;p&gt;毕过题库CPA2群:808736505(注：注会群无在线解答服务)&lt;/p&gt;\r\n\r\n&lt;p&gt;2、你订购的产品目录：&lt;/p&gt;\r\n\r\n&lt;p&gt;@&lt;/p&gt;\r\n\r\n&lt;p&gt;3、账户信息如下：&lt;/p&gt;\r\n\r\n&lt;p&gt;用户名：{username}&lt;/p&gt;\r\n\r\n&lt;p&gt;密码：{password}&lt;/p&gt;\r\n\r\n&lt;p&gt;开通题库后，请即时修改密码！&lt;/p&gt;\r\n\r\n&lt;p&gt;4、使用说明如下：&lt;/p&gt;\r\n\r\n&lt;p&gt;题库电脑答题网址：&lt;/p&gt;\r\n\r\n&lt;p&gt;http://www.biguotiku.com&lt;/p&gt;\r\n\r\n&lt;p&gt;手机答题扫描以下公众微信号或关注微信公众号：biguotiku365 &amp;nbsp;&amp;nbsp;&amp;nbsp;进入答题&lt;/p&gt;', 'peadmin', '1548000000', '8', '');
+INSERT INTO `x2_contents` VALUES ('5', '3', '北约应就华为达成共识，中国是巨大市场', 'files/attach/images/content/20190113/15473939189664.png', 'news', '“中国市场巨大。”波兰指明华为员工被捕与华为公司无直接联系后，该国内政部长称希望与中国保持良好关系，又呼吁欧盟和北约就是否将华为排除在本国市场之外达成共识。不过，波兰已经在全面研究华为参与当地5G建设的情况。', '&lt;p&gt;据路透社当地时间1月12日报道，波兰内政部长布鲁辛斯基（Joachim Brudzinski）当天向该国广播电台RMF FM（该国第一个商业广播电台）表示，波兰希望继续与中国合作，但需要就是否将华为排除在某些市场之外进行讨论。&amp;ldquo;北约内部对华为也有担忧，欧盟及北约成员国应该采取共同立场。&amp;rdquo;&lt;/p&gt;\r\n\r\n&lt;p&gt;与此同时，波兰安全部门负责人指出，针对华为驻波兰员工的指控与个人行为有关，与华为公司没有直接联系。&lt;/p&gt;\r\n\r\n&lt;p&gt;尽管如此，路透社援引波兰媒体Money.pl称，波兰数字化事务部副部长透露，华沙正在全面分析华为参与该国5G建设的情况。&lt;/p&gt;\r\n\r\n&lt;p&gt;分析人士指出，西方国家考虑是否将华为排除在本国市场之外时，都必须考虑该决定对其5G发展速度和成本造成的影响。&lt;/p&gt;\r\n\r\n&lt;p&gt;在此基础上，波兰内政部长表示，&amp;ldquo;我们希望能保持良好、密切和互有吸引力的波中关系。中国是个巨大的市场。&amp;rdquo;&lt;/p&gt;\r\n\r\n&lt;p&gt;据观察者网此前报道，华为波兰代表处员工王伟晶因涉嫌违反波兰法律被逮捕调查，同时被捕的还有一名波兰国家安全局前高级官员，但两人均未认罪。&lt;/p&gt;', 'redrangon', '1547308800', '1', '');
+INSERT INTO `x2_contents` VALUES ('6', '2', '签订马关条约时，日本人想拉拢李鸿章，不料竟得到这样的回复', 'files/attach/images/content/20190113/15473940365537.png', 'news', '晚清末年在慈禧的统治下，中国已经处于被列强欺辱的状态，各种丧权辱国的条约签了不知多少，慈禧对此却不以为然，她只要自己过得好就行，那管老百姓的死活，而签订这些条约又不要她亲自出手，基本都是李鸿章去签的。', '&lt;p&gt;李鸿章是晚清名臣，日本首相伊藤博文对他评价很高：&amp;quot;唯一有能力可跟世界列强一争高下之人。&amp;quot;李鸿章每次跟外国人打交道，中国都处于弱势地位，但李鸿章往往不卑不亢，能很好的完成任务，假若当时清朝强盛一点，李鸿章肯定更加闻名世界。&lt;/p&gt;\r\n\r\n&lt;p&gt;尽管李鸿章力挽狂澜，但仍旧不能挽救清朝大厦即将倒塌的命运，毛主席评价李鸿章时，用&amp;quot;水浅而舟大也&amp;quot;来形容，是相当适宜的。作为晚清栋梁之才，又深受日本人青睐，李鸿章跟日本人打交道时，还曾被对方拉拢。&lt;/p&gt;\r\n\r\n&lt;p&gt;中日甲午战争失败后，中日双方签订了《马关条约》，跟以往一样，慈禧不需要亲自出面，这些条约都由李鸿章签订，据说在马关条约的谈判现场，日本首相伊藤博文对李鸿章的文韬武略十分欣赏，甚至还向他抛出橄榄枝。&lt;/p&gt;\r\n\r\n&lt;p&gt;伊藤博文曾对李鸿章说：&amp;quot;如果你肯为日本效力，得到的好处会更多！&amp;quot;李鸿章自然知道对方在挖墙脚，面对日本人的引诱，李鸿章没有回答任何一句话，只是麻木的一笑，反而搞得伊藤博文尴尬起来，不知该如何应对了。&lt;/p&gt;\r\n\r\n&lt;p&gt;很明显李鸿章并没有接受日本人的邀请，他宁愿继续为清朝卖命，有人推测李鸿章之所以拒绝日本，是因为害怕后世的千古骂名，他已经签订了许多卖国条约，如果他再跳槽到日本，恐怕真的是生生世世要背上卖国贼的骂名。&lt;/p&gt;', 'redrangon', '1547308800', '3', '');
+INSERT INTO `x2_contents` VALUES ('7', '3', '房屋出租人信息不要填了', 'files/attach/images/content/20190121/15480024019382.png', 'news', '1月20日，记者发现个人所得税APP有更新。从更新的内容看，不再强制要求填写出租人信息。这意味着租客此前遇到的填也难不填也难的困局得以缓和，房东与租客之间的博弈就此搁置。房东也不必担心出租信息泄露而被追溯租赁税费了。', '&lt;p&gt;记者登录个人所得税APP后，在住房租金信息填写中，当出租方类型选择为&amp;ldquo;自然人&amp;rdquo;时，出租人姓名和出租人身份证号码为&amp;ldquo;请输入&amp;rdquo;状态；当出租方类型选择为&amp;ldquo;组织&amp;rdquo;时，出租单位名称为&amp;ldquo;请填写&amp;rdquo;。&lt;/p&gt;\r\n\r\n&lt;p&gt;而该APP更新后，当出租方类型选择为&amp;ldquo;自然人&amp;rdquo;时，出租人姓名和出租人身份证号码变为&amp;ldquo;选填&amp;rdquo;状态；当出租方类型选择为&amp;ldquo;组织&amp;rdquo;时，出租单位名称也变为&amp;ldquo;选填&amp;rdquo;状态。&lt;/p&gt;\r\n\r\n&lt;p&gt;业内人士认为，此前由于租客填报租房个税抵扣需要征得房东同意，而房东顾虑到身份信息泄露、可能会被追溯补缴房屋租赁税费等原因，变相提出&amp;ldquo;涨租&amp;rdquo;要求，引发了房东与租客之间的博弈。此次个人所得税APP的更新应该可以打消房东的担心了。&lt;/p&gt;\r\n\r\n&lt;p&gt;此前，很多网友在社交媒体上反映，自己向房东索要其身份信息，但遭到拒绝，房东以提交信息后可能被征税为由，规劝租客不要申报个税租金扣除，甚至有房东还表示如果进行扣除就要租客退房。&lt;/p&gt;\r\n\r\n&lt;p&gt;一边是个税可能抵扣几十块，另一边是房租可能上涨几百块，权衡之下，很多租客被迫选择不再申报租金支出扣除，无法享受到国家发放的个税减税红包。现在不再强填，租客可以享受惠民政策了。&lt;/p&gt;', 'peadmin', '1548000000', '6', '');
+INSERT INTO `x2_contents` VALUES ('8', '2', '朝鲜友好艺术团将对中国进行访问演出', 'files/attach/images/content/20190121/15480024113956.png', 'news', '应中共中央对外联络部邀请，朝鲜劳动党中央政治局委员、中央副委员长、国际部部长李洙墉率朝鲜友好艺术团于1月23日起对中国进行访问演出。', '&lt;p&gt;应中共中央对外联络部邀请，朝鲜劳动党中央政治局委员、中央副委员长、国际部部长李洙墉率朝鲜友好艺术团于1月23日起对中国进行访问演出。&lt;/p&gt;', 'peadmin', '1548000000', '8', '');
 
 -- ----------------------------
 -- Table structure for `x2_database`
@@ -203,7 +208,7 @@ CREATE TABLE `x2_database` (
   KEY `dbtype` (`dbtype`),
   KEY `dbbase` (`dbbase`),
   KEY `dbtable` (`dbtable`)
-) ENGINE=MyISAM AUTO_INCREMENT=357 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=373 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of x2_database
@@ -563,6 +568,22 @@ INSERT INTO `x2_database` VALUES ('353', 'default', 'userrate', 'field', 'x2_use
 INSERT INTO `x2_database` VALUES ('354', 'demo', 'userrate', 'field', 'x2_users', '折扣率', 'default', '', '0');
 INSERT INTO `x2_database` VALUES ('355', 'default', 'orderagent', 'field', 'x2_orders', '代理用户', 'default', '', '0');
 INSERT INTO `x2_database` VALUES ('356', 'default', 'orderactivetime', 'field', 'x2_orders', '激活时间', 'default', 'Y-m-d H:i:s', '0');
+INSERT INTO `x2_database` VALUES ('357', 'default', 'videomodelcode', 'field', 'x2_videos', '模型代码', 'default', '', '0');
+INSERT INTO `x2_database` VALUES ('358', 'default', 'basicbook', 'field', 'x2_basics', '考试大纲', 'default', '', '0');
+INSERT INTO `x2_database` VALUES ('359', 'default', 'cattpl', 'field', 'x2_category', '分类模板', 'default', '', '0');
+INSERT INTO `x2_database` VALUES ('360', 'default', 'contentorder', 'field', 'x2_contents', '权重', 'default', '', '0');
+INSERT INTO `x2_database` VALUES ('361', 'default', 'contentcatid', 'field', 'x2_contents', '所属分类ID', 'default', '', '0');
+INSERT INTO `x2_database` VALUES ('362', 'default', 'dbsynch', 'field', 'x2_database', '是否同步', 'default', '', '0');
+INSERT INTO `x2_database` VALUES ('363', 'default', 'trpackage', 'field', 'x2_training', '套餐', 'default', '', '0');
+INSERT INTO `x2_database` VALUES ('364', 'default', 'trtext', 'field', 'x2_training', '产品介绍', 'default', '', '0');
+INSERT INTO `x2_database` VALUES ('365', 'default', 'trthumb', 'field', 'x2_training', '缩略图', 'default', '', '0');
+INSERT INTO `x2_database` VALUES ('366', 'default', 'orderpaytype', 'field', 'x2_orders', '支付服务提供商', 'default', '', '0');
+INSERT INTO `x2_database` VALUES ('367', 'default', 'sectionid', 'field', 'x2_sections', '章节ID', 'default', '', '0');
+INSERT INTO `x2_database` VALUES ('368', 'default', 'sectionname', 'field', 'x2_sections', '章节名称', 'default', '', '0');
+INSERT INTO `x2_database` VALUES ('369', 'default', 'sectionsubject', 'field', 'x2_sections', '所属科目', 'default', '', '0');
+INSERT INTO `x2_database` VALUES ('370', 'default', 'sectionorder', 'field', 'x2_sections', '权重', 'default', '', '0');
+INSERT INTO `x2_database` VALUES ('371', 'default', 'sectionintro', 'field', 'x2_sections', '章节简介', 'default', '', '0');
+INSERT INTO `x2_database` VALUES ('372', 'demo', 'basicbook', 'field', 'x2_basics', '考试大纲', 'default', '', '0');
 
 -- ----------------------------
 -- Table structure for `x2_errors`
@@ -583,13 +604,14 @@ CREATE TABLE `x2_errors` (
   KEY `erusername` (`erusername`),
   KEY `erstatus` (`erstatus`),
   KEY `erteacher` (`erteacher`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of x2_errors
 -- ----------------------------
 INSERT INTO `x2_errors` VALUES ('1', '6', '740', '1549375977', '答案错误,题干错误,解析错误:这里问题很大呀', 'peadmin', '1', 'peadmin');
 INSERT INTO `x2_errors` VALUES ('2', '6', '740', '1549376020', '答案错误,题干错误,解析错误:大问题', 'peadmin', '1', 'peadmin');
+INSERT INTO `x2_errors` VALUES ('8', '6', '760', '1552722983', '答案错误,题干错误,解析错误,其他错误:题干错误', 'peadmin', '0', '');
 INSERT INTO `x2_errors` VALUES ('4', '6', '3', '1550241154', '答案错误,题干错误,解析错误,其他错误:命题哦肉欲took', 'redrangon', '0', '');
 INSERT INTO `x2_errors` VALUES ('5', '6', '3', '1550241289', '答案错误,题干错误,解析错误,其他错误:ill去', 'redrangon', '0', '');
 INSERT INTO `x2_errors` VALUES ('6', '6', '647', '1551262773', '答案错误,题干错误,解析错误:我热热特热天热他', '', '0', '');
@@ -627,11 +649,17 @@ CREATE TABLE `x2_examhistory` (
   KEY `ehneedresit` (`ehneedresit`),
   KEY `ehispass` (`ehispass`),
   KEY `ehpaperid` (`ehpaperid`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of x2_examhistory
 -- ----------------------------
+INSERT INTO `x2_examhistory` VALUES ('1', '8', '测试试卷', '1', '4', 'eJyrViosTS0uyczPK1ayio7VgXOL8svBIrUA3ywMvw==', 'eJy9UstOwzAQ/BXkM5Vsyqs5Vr0icUAqV8deqKs4DrZzqKJ8QdUj38EJ8UUgPgM/4tQ9tZci5bAzOzuzcrZDDW1AC44KdI8uI6qpBId/Pre/H+/u+959pZZpyzUw67qzkQJrRf2Kii5iK8L0LXYCpuSLVtJBBwxT2ncIxmHWmMQE7VsLxm4aqIQFb7Z4fvJi13nYl/N9+bhI1XKoep9BK5CKQ+WY3HV07FDdyhL0MHu4FAfDtCghLgzUbA7EUnBewUj5iRXVPCP6tG0Wg7OYIyH41JD5f4SEFz5zxvLsGX0/HGo8g/AjA6atXSkdjfPLvcJkNsF3kym5ILi4uS7INCk4MMGT8R/1R/0B', '[]', 'eJxLS8wpTgUABhYCDA==', '19', '0.0', 'peadmin', '1564541752', '0', '1', '0', '', '0', '0', '', '0');
+INSERT INTO `x2_examhistory` VALUES ('2', '8', '测试试卷', '1', '4', 'eJyrViosTS0uyczPK1ayio7VgXOL8svBIrUA3ywMvw==', 'eJy9UstOwzAQ/BXkM5Vsyqs5Vr0icUAqV8deqKs4DrZzqKJ8QdUj38EJ8UUgPgM/4tQ9tZci5bAzOzuzcrZDDW1AC44KdI8uI6qpBId/Pre/H+/u+959pZZpyzUw67qzkQJrRf2Kii5iK8L0LXYCpuSLVtJBBwxT2ncIxmHWmMQE7VsLxm4aqIQFb7Z4fvJi13nYl/N9+bhI1XKoep9BK5CKQ+WY3HV07FDdyhL0MHu4FAfDtCghLgzUbA7EUnBewUj5iRXVPCP6tG0Wg7OYIyH41JD5f4SEFz5zxvLsGX0/HGo8g/AjA6atXSkdjfPLvcJkNsF3kym5ILi4uS7INCk4MMGT8R/1R/0B', '[]', 'eJxLS8wpTgUABhYCDA==', '6', '0.0', 'peadmin', '1564542061', '0', '1', '0', '', '0', '0', '', '0');
+INSERT INTO `x2_examhistory` VALUES ('3', '8', '测试试卷', '1', '4', 'eJyrViosTS0uyczPK1ayio7VgXOL8svBIrUA3ywMvw==', 'eJy9UstOwzAQ/BXkM5Vsyqs5Vr0icUAqV8deqKs4DrZzqKJ8QdUj38EJ8UUgPgM/4tQ9tZci5bAzOzuzcrZDDW1AC44KdI8uI6qpBId/Pre/H+/u+959pZZpyzUw67qzkQJrRf2Kii5iK8L0LXYCpuSLVtJBBwxT2ncIxmHWmMQE7VsLxm4aqIQFb7Z4fvJi13nYl/N9+bhI1XKoep9BK5CKQ+WY3HV07FDdyhL0MHu4FAfDtCghLgzUbA7EUnBewUj5iRXVPCP6tG0Wg7OYIyH41JD5f4SEFz5zxvLsGX0/HGo8g/AjA6atXSkdjfPLvcJkNsF3kym5ILi4uS7INCk4MMGT8R/1R/0B', '[]', 'eJxLS8wpTgUABhYCDA==', '91', '0.0', 'peadmin', '1564542300', '0', '1', '0', '', '0', '0', '', '0');
+INSERT INTO `x2_examhistory` VALUES ('4', '8', '测试试卷', '1', '4', 'eJyrViosTS0uyczPK1ayio7VgXOL8svBIrUA3ywMvw==', 'eJy9UstOwzAQ/BXkM5Vsyqs5Vr0icUAqV8deqKs4DrZzqKJ8QdUj38EJ8UUgPgM/4tQ9tZci5bAzOzuzcrZDDW1AC44KdI8uI6qpBId/Pre/H+/u+959pZZpyzUw67qzkQJrRf2Kii5iK8L0LXYCpuSLVtJBBwxT2ncIxmHWmMQE7VsLxm4aqIQFb7Z4fvJi13nYl/N9+bhI1XKoep9BK5CKQ+WY3HV07FDdyhL0MHu4FAfDtCghLgzUbA7EUnBewUj5iRXVPCP6tG0Wg7OYIyH41JD5f4SEFz5zxvLsGX0/HGo8g/AjA6atXSkdjfPLvcJkNsF3kym5ILi4uS7INCk4MMGT8R/1R/0B', '[]', 'eJxLS8wpTgUABhYCDA==', '46', '0.0', 'peadmin', '1564543187', '0', '1', '0', '', '0', '0', '', '0');
+INSERT INTO `x2_examhistory` VALUES ('5', '8', '测试试卷', '1', '4', 'eJyrViosTS0uyczPK1ayio7VgXOL8svBIrUA3ywMvw==', 'eJy9UstOwzAQ/BXkM5Vsyqs5Vr0icUAqV8deqKs4DrZzqKJ8QdUj38EJ8UUgPgM/4tQ9tZci5bAzOzuzcrZDDW1AC44KdI8uI6qpBId/Pre/H+/u+959pZZpyzUw67qzkQJrRf2Kii5iK8L0LXYCpuSLVtJBBwxT2ncIxmHWmMQE7VsLxm4aqIQFb7Z4fvJi13nYl/N9+bhI1XKoep9BK5CKQ+WY3HV07FDdyhL0MHu4FAfDtCghLgzUbA7EUnBewUj5iRXVPCP6tG0Wg7OYIyH41JD5f4SEFz5zxvLsGX0/HGo8g/AjA6atXSkdjfPLvcJkNsF3kym5ILi4uS7INCk4MMGT8R/1R/0B', '[]', 'eJxLS8wpTgUABhYCDA==', '30', '0.0', 'peadmin', '1564543277', '0', '1', '0', '', '0', '0', '', '0');
+INSERT INTO `x2_examhistory` VALUES ('6', '8', '测试试卷', '1', '4', 'eJyrViosTS0uyczPK1ayqlZyiQhRsoquhgtmpihZKRkq6cAFgFybArtnW7tfrJ/6fP7SF+vbnjftBLJfLpphE6NfYIektKSyIBWoHGQkQrA4NSc1uQRiytMly5/u6Hja1Pp08WoQe8lqsBExRTF5IGyTUaQQow/mghTD1GDqejZp0rPpy/DpxdBCgl4MLXDT0D0M8VteaW5SahHQhyZIUol5xeVgQUckwcy8kqJ8oBiSUE5qWWoOWpAXlyZlQcLMEkm0IB+oHRhn0UrmSrFIwolFqXkgtQZIavOLUsCWI4sVlySWlBajWZVYWpKRX4TqpJLMXFA0GhkYWuoamOsaGyrVxtYipIvyy0GuiK0FANbY+Bs=', 'eJy9UstOwzAQ/BXkM5Vsyqs5Vr0icUAqV8deqKs4DrZzqKJ8QdUj38EJ8UUgPgM/4tQ9tZci5bAzOzuzcrZDDW1AC44KdI8uI6qpBId/Pre/H+/u+959pZZpyzUw67qzkQJrRf2Kii5iK8L0LXYCpuSLVtJBBwxT2ncIxmHWmMQE7VsLxm4aqIQFb7Z4fvJi13nYl/N9+bhI1XKoep9BK5CKQ+WY3HV07FDdyhL0MHu4FAfDtCghLgzUbA7EUnBewUj5iRXVPCP6tG0Wg7OYIyH41JD5f4SEFz5zxvLsGX0/HGo8g/AjA6atXSkdjfPLvcJkNsF3kym5ILi4uS7INCk4MMGT8R/1R/0B', '{\"1\":0}', 'eJxLS8wpTgUABhYCDA==', '8', '0.0', 'peadmin', '1564543939', '0', '1', '0', '', '0', '0', '', '0');
 
 -- ----------------------------
 -- Table structure for `x2_favors`
@@ -672,9 +700,9 @@ CREATE TABLE `x2_groups` (
 -- ----------------------------
 -- Records of x2_groups
 -- ----------------------------
-INSERT INTO `x2_groups` VALUES ('1', 'webmaster', '管理员', 'webmaster', '0', '管理员');
+INSERT INTO `x2_groups` VALUES ('1', 'webmaster', '管理员', 'webmaster', '1', '管理员');
 INSERT INTO `x2_groups` VALUES ('2', 'teacher', '教师', 'teacher', '0', '教师');
-INSERT INTO `x2_groups` VALUES ('3', 'user', '普通用户', 'user', '1', '普通用户');
+INSERT INTO `x2_groups` VALUES ('3', 'user', '普通用户', 'user', '0', '普通用户');
 INSERT INTO `x2_groups` VALUES ('4', 'agent', '代理', 'agent', '0', '');
 
 -- ----------------------------
@@ -739,9 +767,15 @@ CREATE TABLE `x2_notes` (
   `noteusername` varchar(48) NOT NULL,
   `notequestionid` int(11) NOT NULL,
   `notecontent` text NOT NULL,
+  `notesubject` int(11) NOT NULL,
+  `notestatus` tinyint(1) NOT NULL,
+  `notetime` int(11) NOT NULL,
   PRIMARY KEY (`noteid`),
   KEY `noteusername` (`noteusername`) USING BTREE,
-  KEY `notequestionid` (`notequestionid`) USING BTREE
+  KEY `notequestionid` (`notequestionid`) USING BTREE,
+  KEY `notesubject` (`notesubject`),
+  KEY `notestatus` (`notestatus`),
+  KEY `notetime` (`notetime`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -763,12 +797,14 @@ CREATE TABLE `x2_openbasics` (
   KEY `obtime` (`obtime`),
   KEY `obendtime` (`obendtime`),
   KEY `obusername` (`obusername`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of x2_openbasics
 -- ----------------------------
 INSERT INTO `x2_openbasics` VALUES ('3', '18568263814', '2', '1551601638', '1614846438');
+INSERT INTO `x2_openbasics` VALUES ('4', 'peadmin', '2', '1552880035', '1584502435');
+INSERT INTO `x2_openbasics` VALUES ('5', 'peadmin', '4', '1564541677', '1565492077');
 
 -- ----------------------------
 -- Table structure for `x2_openlessons`
@@ -783,11 +819,15 @@ CREATE TABLE `x2_openlessons` (
   PRIMARY KEY (`oplid`),
   KEY `oplusername` (`oplusername`),
   KEY `opllessonid` (`opllessonid`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of x2_openlessons
 -- ----------------------------
+INSERT INTO `x2_openlessons` VALUES ('2', 'ppstream', '2', '1556413068', '1556585868');
+INSERT INTO `x2_openlessons` VALUES ('3', 'cxk', '2', '1556413902', '1556500302');
+INSERT INTO `x2_openlessons` VALUES ('4', 'peadmin', '2', '1563527848', '1572167848');
+INSERT INTO `x2_openlessons` VALUES ('5', 'peadmin', '1', '1563527880', '1572167880');
 
 -- ----------------------------
 -- Table structure for `x2_orders`
@@ -816,17 +856,9 @@ CREATE TABLE `x2_orders` (
 -- ----------------------------
 -- Records of x2_orders
 -- ----------------------------
-INSERT INTO `x2_orders` VALUES ('201902251737173', '初级经济法+实务套餐', '18568263814', '[{\"subjectid\":\"6\",\"basicid\":\"3\",\"basicname\":\"初级实务\",\"time\":\"366\"}]', 'exam', '30.04', '1551087451', '99', '', 'redrangon', '0', '');
-INSERT INTO `x2_orders` VALUES ('201902251756545', '初级经济法+实务套餐', '18738317214', '[{\"subjectid\":\"6\",\"basicid\":\"3\",\"basicname\":\"初级实务\",\"time\":\"366\"}]', 'exam', '30.04', '1551088564', '99', '', 'redrangon', '0', '');
-INSERT INTO `x2_orders` VALUES ('201902251831672', '初级经济法+实务套餐', '18568263814', '[{\"subjectid\":\"6\",\"basicid\":\"3\",\"basicname\":\"初级实务\",\"time\":\"366\"}]', 'exam', '30.04', '1551090717', '99', '', 'redrangon', '0', '');
-INSERT INTO `x2_orders` VALUES ('201902251833297', '初级实务年卡', '18568263814', '[{\"subjectid\":null,\"basicid\":\"3\",\"basicname\":\"初级实务\",\"time\":\"365\",\"price\":72}]', 'exam', '72.00', '1551090798', '99', '', 'redrangon', '0', '');
-INSERT INTO `x2_orders` VALUES ('201902251845693', '初级经济法年卡', '18568263814', '[{\"subjectid\":null,\"basicid\":\"2\",\"basicname\":\"初级经济法\",\"time\":\"366\",\"price\":24.1}]', 'exam', '24.10', '1551091505', '99', '', 'redrangon', '0', '');
 INSERT INTO `x2_orders` VALUES ('201902251939518', '初级经济法+实务套餐', '18568263814', '[{\"subjectid\":\"6\",\"basicid\":\"3\",\"basicname\":\"初级实务\",\"time\":\"366\"}]', 'exam', '30.04', '1551094766', '2', '', 'redrangon', '0', '');
-INSERT INTO `x2_orders` VALUES ('201902252009687', '初级经济法+实务套餐', '18568263814', '[{\"subjectid\":\"4\",\"basicid\":\"2\",\"basicname\":\"初级经济法\",\"time\":\"366\"},{\"subjectid\":\"6\",\"basicid\":\"3\",\"basicname\":\"初级实务\",\"time\":\"366\"}]', 'exam', '30.04', '1551096593', '99', '', 'redrangon', '0', '');
-INSERT INTO `x2_orders` VALUES ('201902252025728', '初级经济法+实务套餐', '18568263814', '[{\"subjectid\":\"4\",\"basicid\":\"2\",\"basicname\":\"初级经济法\",\"time\":\"366\"},{\"subjectid\":\"6\",\"basicid\":\"3\",\"basicname\":\"初级实务\",\"time\":\"366\"}]', 'exam', '30.04', '1551097550', '99', '', 'redrangon', '0', '');
-INSERT INTO `x2_orders` VALUES ('201902260957877', '代理充值100元', 'redrangon', '[]', 'recharge', '100.00', '1551146223', '1', '', '', '0', '');
-INSERT INTO `x2_orders` VALUES ('201902261037668', '代理充值88.88元', 'redrangon', '[]', 'recharge', '88.88', '1551148663', '1', 'kjldsafklsasdasdaf lksda f', '', '0', '');
-INSERT INTO `x2_orders` VALUES ('201902251735815', '初级经济法+实务套餐', '18568263814', '[{\"subjectid\":\"6\",\"basicid\":\"3\",\"basicname\":\"初级实务\",\"time\":\"366\"}]', 'exam', '30.04', '1551087310', '99', '', 'redrangon', '0', '');
+INSERT INTO `x2_orders` VALUES ('201908042253685', '英语六级月卡', 'peadmin', '[{\"subjectid\":\"8\",\"basicid\":\"5\",\"basicname\":\"英语六级\",\"time\":\"31\",\"price\":48.8}]', 'exam', '48.80', '1564930403', '1', '', '', '0', '');
+INSERT INTO `x2_orders` VALUES ('201908042253250', '英语六级月卡', 'peadmin', '[{\"subjectid\":\"8\",\"basicid\":\"5\",\"basicname\":\"英语六级\",\"time\":\"31\",\"price\":48.8}]', 'exam', '48.80', '1564930425', '1', '', '', '0', '');
 INSERT INTO `x2_orders` VALUES ('201902281519893', '初级经济法+实务套餐', '13552525371', '[{\"subjectid\":\"4\",\"basicid\":\"2\",\"basicname\":\"初级经济法\",\"time\":\"366\"},{\"subjectid\":\"6\",\"basicid\":\"3\",\"basicname\":\"初级实务\",\"time\":\"366\"}]', 'exam', '30.04', '1551338354', '2', '', 'redrangon', '0', 'coin');
 INSERT INTO `x2_orders` VALUES ('201902281520465', '初级经济法+实务套餐', '13552525371', '[{\"subjectid\":\"4\",\"basicid\":\"2\",\"basicname\":\"初级经济法\",\"time\":\"366\"},{\"subjectid\":\"6\",\"basicid\":\"3\",\"basicname\":\"初级实务\",\"time\":\"366\"}]', 'exam', '30.04', '1551338423', '2', '', 'redrangon', '0', 'coin');
 INSERT INTO `x2_orders` VALUES ('201902281526651', '初级经济法+实务套餐', '13552525371', '[{\"subjectid\":\"4\",\"basicid\":\"2\",\"basicname\":\"初级经济法\",\"time\":\"366\"},{\"subjectid\":\"6\",\"basicid\":\"3\",\"basicname\":\"初级实务\",\"time\":\"366\"}]', 'exam', '30.04', '1551338781', '2', '', 'redrangon', '0', 'coin');
@@ -835,15 +867,10 @@ INSERT INTO `x2_orders` VALUES ('201902281531159', '初级经济法+实务套餐
 INSERT INTO `x2_orders` VALUES ('201902281534530', '初级经济法+实务套餐', '13552525371', '[{\"subjectid\":\"4\",\"basicid\":\"2\",\"basicname\":\"初级经济法\",\"time\":\"366\"},{\"subjectid\":\"6\",\"basicid\":\"3\",\"basicname\":\"初级实务\",\"time\":\"366\"}]', 'exam', '30.04', '1551339280', '2', '', 'redrangon', '0', 'coin');
 INSERT INTO `x2_orders` VALUES ('201903011201277', '初级经济法+实务套餐', '13552525371', '[{\"subjectid\":\"4\",\"basicid\":\"2\",\"basicname\":\"初级经济法\",\"time\":\"366\"},{\"subjectid\":\"6\",\"basicid\":\"3\",\"basicname\":\"初级实务\",\"time\":\"366\"}]', 'exam', '30.04', '1551412863', '2', '', 'redrangon', '0', 'coin');
 INSERT INTO `x2_orders` VALUES ('201903012054565', '初级经济法+实务套餐', '18568263814', '[{\"subjectid\":\"4\",\"basicid\":\"2\",\"basicname\":\"初级经济法\",\"time\":\"366\"},{\"subjectid\":\"6\",\"basicid\":\"3\",\"basicname\":\"初级实务\",\"time\":\"366\"}]', 'exam', '30.04', '1551444879', '2', '', 'redrangon', '0', 'coin');
-INSERT INTO `x2_orders` VALUES ('201903021936931', '初级经济法+实务套餐', 'peadmin', '[{\"subjectid\":\"4\",\"basicid\":\"2\",\"basicname\":\"初级经济法\",\"time\":\"366\"},{\"subjectid\":\"6\",\"basicid\":\"3\",\"basicname\":\"初级实务\",\"time\":\"366\"}]', 'exam', '150.20', '1551526580', '1', '', '', '0', '');
 INSERT INTO `x2_orders` VALUES ('201903031633222', '初级经济法+实务套餐', '15868263814', '[{\"subjectid\":\"4\",\"basicid\":\"2\",\"basicname\":\"初级经济法\",\"time\":\"366\"},{\"subjectid\":\"6\",\"basicid\":\"3\",\"basicname\":\"初级实务\",\"time\":\"366\"}]', 'exam', '30.04', '1551602027', '2', '', 'redrangon', '0', 'coin');
 INSERT INTO `x2_orders` VALUES ('201903031743975', '代理手动充值', '', '[]', 'offline', '500.00', '1551606204', '2', '', '', '0', '');
 INSERT INTO `x2_orders` VALUES ('201903031745689', '代理手动充值', '', '[]', 'offline', '-1000.00', '1551606316', '2', '', '', '0', '');
 INSERT INTO `x2_orders` VALUES ('201903041046771', '代理手动充值', 'redrangon', '[]', 'offline', '500.00', '1551667563', '2', '', '', '0', '');
-INSERT INTO `x2_orders` VALUES ('201903142149688', '', 'peadmin', '[{\"lessonid\":null,\"lessonname\":null,\"time\":null,\"price\":null}]', 'lesson', '0.00', '1552571377', '1', '', '', '0', '');
-INSERT INTO `x2_orders` VALUES ('201903142151344', '', 'peadmin', '[{\"lessonid\":null,\"lessonname\":null,\"time\":null,\"price\":null}]', 'lesson', '0.00', '1552571470', '1', '', '', '0', '');
-INSERT INTO `x2_orders` VALUES ('201903142152632', '初级经济法月卡', 'peadmin', '[{\"lessonid\":\"1\",\"lessonname\":\"初级经济法\",\"time\":\"30\",\"price\":128}]', 'lesson', '128.00', '1552571534', '1', '', '', '0', '');
-INSERT INTO `x2_orders` VALUES ('201903142200286', '初级经济法月卡', 'peadmin', '[{\"lessonid\":\"1\",\"lessonname\":\"初级经济法\",\"time\":\"30\",\"price\":128}]', 'lesson', '128.00', '1552572014', '1', '', '', '0', '');
 
 -- ----------------------------
 -- Table structure for `x2_papers`
@@ -863,11 +890,12 @@ CREATE TABLE `x2_papers` (
   KEY `papersubject` (`papersubject`),
   KEY `papertype` (`papertype`),
   KEY `paperauthor` (`paperauthor`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of x2_papers
 -- ----------------------------
+INSERT INTO `x2_papers` VALUES ('8', '测试试卷', '9', '{\"papertime\":\"60\",\"comfrom\":\"\",\"score\":\"100\",\"passscore\":\"60\",\"questypelite\":{\"DXT\":\"1\",\"MDXT\":\"1\",\"BDXT\":\"1\",\"PDT\":\"1\",\"WDT\":\"1\"},\"scalemodel\":\"0\",\"questype\":{\"DXT\":{\"number\":\"1\",\"score\":\"100\",\"describe\":\"\",\"easynumber\":\"1\",\"middlenumber\":\"0\",\"hardnumber\":\"0\"},\"MDXT\":{\"number\":\"0\",\"score\":\"0\",\"describe\":\"\",\"easynumber\":\"0\",\"middlenumber\":\"0\",\"hardnumber\":\"0\"},\"BDXT\":{\"number\":\"0\",\"score\":\"0\",\"describe\":\"\",\"easynumber\":\"0\",\"middlenumber\":\"0\",\"hardnumber\":\"0\"},\"PDT\":{\"number\":\"0\",\"score\":\"0\",\"describe\":\"\",\"easynumber\":\"0\",\"middlenumber\":\"0\",\"hardnumber\":\"0\"},\"WDT\":{\"number\":\"0\",\"score\":\"0\",\"describe\":\"\",\"easynumber\":\"0\",\"middlenumber\":\"0\",\"hardnumber\":\"0\"}}}', '', '1', '', '1564541653', '0');
 INSERT INTO `x2_papers` VALUES ('6', '测试手工组卷', '6', '{\"papertime\":\"60\",\"comfrom\":\"本地\",\"score\":\"100\",\"passscore\":\"60\",\"questypelite\":{\"DXT\":\"1\",\"PDT\":\"1\",\"BDXT\":\"1\",\"MDXT\":\"1\"},\"questype\":{\"PDT\":{\"number\":\"10\",\"score\":\"5\",\"describe\":\"\"},\"BDXT\":{\"number\":\"0\",\"score\":\"0\",\"describe\":\"\"},\"MDXT\":{\"number\":\"0\",\"score\":\"0\",\"describe\":\"\"},\"DXT\":{\"number\":\"10\",\"score\":\"5\",\"describe\":\"\"}}}', '{\"PDT\":{\"questions\":\"\",\"rowsquestions\":\"\"},\"BDXT\":{\"questions\":\"\",\"rowsquestions\":\"\"},\"MDXT\":{\"questions\":\"\",\"rowsquestions\":\"\"},\"DXT\":{\"questions\":\"\",\"rowsquestions\":\"\"}}', '2', '', '1544795684', '1');
 INSERT INTO `x2_papers` VALUES ('7', '测试即时组卷', '6', '{\"papertime\":\"60\",\"comfrom\":\"本地\",\"score\":\"100\",\"passscore\":\"60\",\"questypelite\":{\"BDXT\":\"1\",\"PDT\":\"1\",\"MDXT\":\"1\",\"DXT\":\"1\"},\"questype\":{\"PDT\":{\"number\":\"0\",\"score\":\"0\",\"describe\":\"\"},\"BDXT\":{\"number\":\"10\",\"score\":\"10\",\"describe\":\"\"},\"MDXT\":{\"number\":\"0\",\"score\":\"0\",\"describe\":\"\"},\"DXT\":{\"number\":\"0\",\"score\":\"0\",\"describe\":\"\"}}}', '{\"questions\":[],\"questionrows\":null}', '3', '', '1544796087', '1');
 
@@ -885,7 +913,7 @@ CREATE TABLE `x2_points` (
   PRIMARY KEY (`pointid`),
   KEY `pointsection` (`pointsection`),
   KEY `pointorder` (`pointorder`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of x2_points
@@ -893,6 +921,8 @@ CREATE TABLE `x2_points` (
 INSERT INTO `x2_points` VALUES ('3', '分论二', '1', '0', '', '');
 INSERT INTO `x2_points` VALUES ('2', '分论一', '1', '0', '', '');
 INSERT INTO `x2_points` VALUES ('1', '总论', '1', '3', '&lt;p&gt;总论&lt;/p&gt;', 'files/attach/images/content/20190223/15508874631759.mp4');
+INSERT INTO `x2_points` VALUES ('6', '测试', '2', '0', '', '');
+INSERT INTO `x2_points` VALUES ('7', '测试知识点', '4', '0', '', '');
 
 -- ----------------------------
 -- Table structure for `x2_properties`
@@ -1022,11 +1052,13 @@ CREATE TABLE `x2_questions` (
   KEY `questionsubject` (`questionsubject`),
   KEY `questiontype` (`questiontype`),
   KEY `questionauthor` (`questionauthor`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of x2_questions
 -- ----------------------------
+INSERT INTO `x2_questions` VALUES ('1', '&lt;p&gt;测试知识点试题&lt;/p&gt;', 'DXT', '&lt;p&gt;大师傅士大夫&lt;/p&gt;\r\n\r\n&lt;hr /&gt;\r\n&lt;p&gt;士大夫大师傅士大夫撒旦&lt;/p&gt;\r\n\r\n&lt;hr /&gt;\r\n&lt;p&gt;大师傅士大夫士大夫撒旦&lt;/p&gt;\r\n\r\n&lt;hr /&gt;\r\n&lt;p&gt;士大夫士大夫大师傅&lt;/p&gt;', '4', 'A', '', '1', '9', '7', '0', '0', '1', '', '1564541628');
+INSERT INTO `x2_questions` VALUES ('2', '&lt;p&gt;啊实打实大苏打2&lt;/p&gt;', 'DXT', '&lt;p&gt;大幅度的方式&lt;/p&gt;\r\n\r\n&lt;hr /&gt;\r\n&lt;p&gt;撒旦发生大法师的&lt;/p&gt;\r\n\r\n&lt;hr /&gt;\r\n&lt;p&gt;撒旦飞洒地方撒旦&lt;/p&gt;\r\n\r\n&lt;hr /&gt;\r\n&lt;p&gt;阿斯顿发射点&lt;/p&gt;', '4', 'A', '', '1', '9', '7', '0', '0', '1', '', '1564542243');
 
 -- ----------------------------
 -- Table structure for `x2_questypes`
@@ -1083,7 +1115,7 @@ CREATE TABLE `x2_sections` (
   PRIMARY KEY (`sectionid`),
   KEY `sectionsubject` (`sectionsubject`),
   KEY `sectionorder` (`sectionorder`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of x2_sections
@@ -1091,6 +1123,7 @@ CREATE TABLE `x2_sections` (
 INSERT INTO `x2_sections` VALUES ('1', '总论', '6', '2', '&lt;p&gt;初级经济学总论&lt;/p&gt;');
 INSERT INTO `x2_sections` VALUES ('2', '经济法初级', '6', '1', '&lt;p&gt;经济法初级&lt;/p&gt;');
 INSERT INTO `x2_sections` VALUES ('3', '', '0', '0', '');
+INSERT INTO `x2_sections` VALUES ('4', '测试章节', '9', '0', '');
 
 -- ----------------------------
 -- Table structure for `x2_subjects`
@@ -1106,7 +1139,7 @@ CREATE TABLE `x2_subjects` (
   PRIMARY KEY (`subjectid`),
   KEY `subjectname` (`subjectname`),
   KEY `subjecttrid` (`subjecttrid`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of x2_subjects
@@ -1116,6 +1149,7 @@ INSERT INTO `x2_subjects` VALUES ('5', '初级会计基础', 'default', '2', '[\
 INSERT INTO `x2_subjects` VALUES ('6', '初级经济法测试', 'demo', '2', '[\"DXT\",\"MDXT\",\"BDXT\",\"PDT\",\"WDT\"]', '&lt;p&gt;初级经济法&lt;/p&gt;');
 INSERT INTO `x2_subjects` VALUES ('7', '英语四级', 'demo', '3', '[\"DXT\",\"MDXT\",\"BDXT\",\"PDT\"]', '&lt;p&gt;英语四级&lt;/p&gt;');
 INSERT INTO `x2_subjects` VALUES ('8', '英语六级', 'demo', '3', '[\"DXT\",\"MDXT\",\"BDXT\",\"PDT\"]', '&lt;p&gt;英语六级&lt;/p&gt;');
+INSERT INTO `x2_subjects` VALUES ('9', '驾照', 'default', '4', '[\"DXT\",\"MDXT\",\"BDXT\",\"PDT\",\"WDT\"]', '');
 
 -- ----------------------------
 -- Table structure for `x2_training`
@@ -1131,7 +1165,7 @@ CREATE TABLE `x2_training` (
   `trpackage` text NOT NULL,
   PRIMARY KEY (`trid`),
   KEY `trid` (`trid`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of x2_training
@@ -1150,6 +1184,7 @@ CREATE TABLE `x2_users` (
   `userphone` varchar(24) NOT NULL,
   `useremail` varchar(48) NOT NULL,
   `userpassword` varchar(32) NOT NULL,
+  `useropenid` varchar(32) NOT NULL,
   `usernick` varchar(72) NOT NULL,
   `userrealname` varchar(72) NOT NULL,
   `usergroupcode` varchar(24) NOT NULL,
@@ -1157,23 +1192,28 @@ CREATE TABLE `x2_users` (
   `userpassport` varchar(36) NOT NULL,
   `usercoin` decimal(10,2) NOT NULL,
   `userregtime` int(11) NOT NULL,
-  `userrate` int(11) DEFAULT NULL,
-  `useragent` varchar(48) DEFAULT NULL,
+  `userrate` int(11) NOT NULL,
+  `useragent` varchar(48) NOT NULL,
+  `userstatus` tinyint(1) NOT NULL,
   PRIMARY KEY (`userid`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `userphone` (`userphone`),
   UNIQUE KEY `useremail` (`useremail`) USING BTREE,
   KEY `usergroupcode` (`usergroupcode`),
-  KEY `useragent` (`useragent`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+  KEY `useragent` (`useragent`),
+  KEY `useropenid` (`useropenid`)
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of x2_users
 -- ----------------------------
-INSERT INTO `x2_users` VALUES ('1', 'peadmin', '18738317214', 'peadmin@phpems.net', 'e3ceb5881a0a1fdaad01296d7554868d', '火眼', '哼哼', 'webmaster', '男', '410782198502140077', '0.00', '0', null, null);
-INSERT INTO `x2_users` VALUES ('2', 'redrangon', '18578263814', '18568263814@139.com', '96e79218965eb72c92a549dd5a330112', '', '', 'agent', '男', '', '9699.60', '1547465421', '20', null);
-INSERT INTO `x2_users` VALUES ('3', '18568263814', '18568263814', '18568263814@qq.com', '96e79218965eb72c92a549dd5a330112', '', '', 'teacher', '', '', '0.00', '1550150387', null, null);
-INSERT INTO `x2_users` VALUES ('5', '13552525371', '13552525371', '278768688@qq.com', 'b4a01fa383aa4942565fda44f3066263', '', '媛媛', 'user', '', '', '0.00', '1551338354', '0', '');
+INSERT INTO `x2_users` VALUES ('1', 'peadmin', '18738317214', 'peadmin@phpems.net', '244153a2599be7685c32d2281f57ae67', '', '火眼', '哼哼', 'webmaster', '男', '410782198502140077', '0.00', '0', '0', '', '0');
+INSERT INTO `x2_users` VALUES ('2', 'redrangon', '18578263814', '18568263814@139.com', '96e79218965eb72c92a549dd5a330112', '', '', '', 'agent', '男', '', '9699.60', '1547465421', '20', '', '0');
+INSERT INTO `x2_users` VALUES ('3', '18568263814', '18568263814', '18568263814@qq.com', '96e79218965eb72c92a549dd5a330112', '', '', '', 'teacher', '', '', '0.00', '1550150387', '0', '', '0');
+INSERT INTO `x2_users` VALUES ('8', 'ppstream', '15800158000', '15800158000@139.com', '9db06bcff9248837f86d1a6bcf41c9e7', '', '', '', '', '', '', '0.00', '1555860602', '0', '', '0');
+INSERT INTO `x2_users` VALUES ('9', 'cxk', '18703729411', '123456@qq.com', 'e10adc3949ba59abbe56e057f20f883e', '', '', '', 'webmaster', '', '', '0.00', '1556242644', '0', '', '0');
+INSERT INTO `x2_users` VALUES ('10', 'tester', '15012325421', '15012325421@139.com', '96e79218965eb72c92a549dd5a330112', '', '', '', 'user', '', '', '0.00', '1557539406', '0', '', '0');
+INSERT INTO `x2_users` VALUES ('11', 'tester2', '15365452145', '15365452145@163.com', '96e79218965eb72c92a549dd5a330112', '', '', '', 'user', '', '', '0.00', '1557539429', '0', '', '0');
 
 -- ----------------------------
 -- Table structure for `x2_videos`

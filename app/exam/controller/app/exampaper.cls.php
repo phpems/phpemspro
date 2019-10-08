@@ -38,6 +38,15 @@ class exampaper
         \tpl::getInstance()->assign('subject',$this->subject);
         \tpl::getInstance()->assign('basic',$this->basic);
         \tpl::getInstance()->assign('status',$this->status);
+        if($this->basic['basicexam']['model'] == 2)
+        {
+            $message = array(
+                'statusCode' => 200,
+                "callbackType" => "forward",
+                "forwardUrl" => "index.php?exam-app-exam"
+            );
+            \route::urlJump($message);
+        }
     }
 
     public function lefttime()
@@ -140,6 +149,7 @@ class exampaper
             );
             \route::urlJump($message);
         }
+        \pedis::getInstance()->delHashData('examsession_'.\exam\app::$_user['sessionusername']);
         $paperid = \route::get('paperid');
         $paper = exams::getPaperById($this->subject['subjectdb'],$paperid);
         if($paper['papertype'] == 1)
@@ -201,6 +211,7 @@ class exampaper
             $args['key'] = $paper['paperid'];
             $args['basic'] = $this->basic['basicid'];
             $args['username'] = \exam\app::$_user['sessionusername'];
+            $args['token'] = md5(serialize($args));
             \pedis::getInstance()->setHashData('examsession_'.\exam\app::$_user['sessionusername'],\session::getInstance()->getSessionId(),json_encode($args));
         }
         elseif($paper['papertype'] == 2)
@@ -246,6 +257,7 @@ class exampaper
             $args['key'] = $paper['paperid'];
             $args['basic'] = $this->basic['basicid'];
             $args['username'] = \exam\app::$_user['sessionusername'];
+            $args['token'] = md5(serialize($args));
             \pedis::getInstance()->setHashData('examsession_'.\exam\app::$_user['sessionusername'],\session::getInstance()->getSessionId(),json_encode($args));
         }
         elseif($paper['papertype'] == 3)
@@ -266,6 +278,7 @@ class exampaper
             $args['key'] = $paper['paperid'];
             $args['basic'] = $this->basic['basicid'];
             $args['username'] = \exam\app::$_user['sessionusername'];
+            $args['token'] = md5(serialize($args));
             \pedis::getInstance()->setHashData('examsession_'.\exam\app::$_user['sessionusername'],\session::getInstance()->getSessionId(),json_encode($args));
         }
         $message = array(

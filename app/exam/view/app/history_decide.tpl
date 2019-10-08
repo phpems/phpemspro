@@ -1,28 +1,6 @@
 {x2;include:header}
 <body>
-<div class="container-fluid">
-	<div class="row-fluid header">
-		<div class="pep header">
-			<div class="col-xs-4">
-				<ul class="list-unstyled list-inline">
-					<li><i class="glyphicon glyphicon-phone-alt" style="font-size: 16px"></i></li>
-					<li>电话：13900139000</li>
-				</ul>
-			</div>
-			<div class="col-xs-8 text-right">
-				<ul class="list-unstyled list-inline">
-					<li>立即登陆</li>
-					<li>|</li>
-					<li>快速注册</li>
-					<li>|</li>
-					<li>关于我们</li>
-					<li>|</li>
-					<li>帮助信息</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</div>
+{x2;include:top}
 <div class="container-fluid">
 	<div class="row-fluid nav">
 		<div class="pep nav">

@@ -105,7 +105,8 @@
 				</div>
 			</div>
 			<form class="col-xs-9 nopadding" id="exampaper" action="index.php?exam-app-exampaper-save" method="post">
-                {x2;eval:v:qtid = 0}
+				<input type="hidden" name="token" value="{x2;$paper['token']}">
+				{x2;eval:v:qtid = 0}
                 {x2;tree:$paper['setting']['papersetting']['questypelite'],lite,lid}
                 {x2;eval:v:qtindex = 0}
                 {x2;eval:v:questype = v:key}

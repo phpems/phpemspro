@@ -38,6 +38,15 @@ class basic
         \tpl::getInstance()->assign('subject',$this->subject);
         \tpl::getInstance()->assign('basic',$this->basic);
         \tpl::getInstance()->assign('status',$this->status);
+        if($this->basic['basicexam']['model'] == 2)
+        {
+            $message = array(
+                'statusCode' => 200,
+                "callbackType" => "forward",
+                "forwardUrl" => "index.php?exam-mobile-exam"
+            );
+            \route::urlJump($message);
+        }
     }
 
     public function package()
@@ -217,7 +226,7 @@ class basic
                             'statusCode' => 200,
                             "message" => "下单成功！",
                             "callbackType" => "forward",
-                            "forwardUrl" => 'index.php?user-mobile-user-orderdetail&ordersn='.$args['ordersn']
+                            "forwardUrl" => 'index.php?user-mobile-user-wxpay&ordersn='.$args['ordersn']
                         );
                         \route::urlJump($message);
                     }
@@ -326,14 +335,17 @@ class basic
             $wg = 0;
             foreach($point as $p)
             {
-                $numbers[$p['pointid']] = question::getQuestionNumberByPointid($this->subject['subjectdb'],$p['pointid']);
-                $favor[$key] += intval(\pedis::getInstance()->getHashData('favornumber',\exam\mobile::$_user['sessionusername'].'-'.$this->subject['subjectdb'].'-'.$p['pointid']));
-                $note[$key] += intval(\pedis::getInstance()->getHashData('notenumber',\exam\mobile::$_user['sessionusername'].'-'.$this->subject['subjectdb'].'-'.$p['pointid']));
-                $rt += $record['recordnumber'][$p['pointid']]['right'];
-                $wg += $record['recordnumber'][$p['pointid']]['wrong'];
-                if($p['pointid'] == $pointid)
+                if($this->basic['basicpoints'][$key][$p['pointid']])
                 {
-                    $thispoint = $p;
+                    $numbers[$p['pointid']] = question::getQuestionNumberByPointid($this->subject['subjectdb'],$p['pointid']);
+                    $favor[$key] += intval(\pedis::getInstance()->getHashData('favornumber',\exam\mobile::$_user['sessionusername'].'-'.$this->subject['subjectdb'].'-'.$p['pointid']));
+                    $note[$key] += intval(\pedis::getInstance()->getHashData('notenumber',\exam\mobile::$_user['sessionusername'].'-'.$this->subject['subjectdb'].'-'.$p['pointid']));
+                    $rt += $record['recordnumber'][$p['pointid']]['right'];
+                    $wg += $record['recordnumber'][$p['pointid']]['wrong'];
+                    if($p['pointid'] == $pointid)
+                    {
+                        $thispoint = $p;
+                    }
                 }
             }
             $wrong[$key] = intval($wg);

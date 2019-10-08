@@ -314,14 +314,27 @@ class pdosql
                 if($key)
                 {
                     $q[] = $p[0].' '.$p[1].' ';
-                    if(isset($p[2]))
-                        $v[$p[2]] = $p[3];
                 }
                 else
                 {
                     $q[] = $p[1].' ';
-                    if(isset($p[2]))
-                        $v[$p[2]] = $p[3];
+                }
+                if(isset($p[2]))
+                {
+                    if(is_array($p[3]))
+                    {
+                        $i = 0;
+                        $tkey = array();
+                        foreach($p[3] as $tp)
+                        {
+                            $tkey[] = ':'.$p[2].'_'.$i;
+                            $v[$p[2].'_'.$i] = $tp;
+                            $i++;
+                        }
+                        $p[1] = str_replace(':'.$p[2],implode(',',$tkey),$p[1]);
+                    }
+                    else
+                    $v[$p[2]] = $p[3];
                 }
             }
             $db_query = ' '.implode(' ',$q);
@@ -443,7 +456,9 @@ class pdosql
             $db_tables = implode(',',$db_tables);
         }
         else
+        {
             $db_tables = $tb_pre.$tables;
+        }
         $query = $args[1];
         if(!is_array($query))$db_query = 1;
         else
@@ -459,21 +474,40 @@ class pdosql
             $db_query = '1 '.implode(' ',$q);
         }
         if(isset($args[2]))
+        {
             $db_groups = is_array($args[2])?implode(',',$args[2]):$args[2];
+        }
         else
+        {
             $db_groups = '';
+        }
         if(isset($args[3]))
+        {
             $db_orders = is_array($args[3])?implode(',',$args[3]):$args[3];
+        }
         else
+        {
             $db_orders = '';
+        }
         if(isset($args[4]))
+        {
             $db_limits = is_array($args[4])?implode(',',$args[4]):$args[4];
+        }
         else
+        {
             $db_limits = '';
-        if($db_limits == false && $db_limits !== false)$db_limits = self::$_mostlimits;
+        }
+        if($db_limits)$db_limits = ' LIMIT '.$db_limits;
         $db_groups = $db_groups?' GROUP BY '.$db_groups:'';
         $db_orders = $db_orders?' ORDER BY '.$db_orders:'';
-        $sql = 'DELETE FROM '.$db_tables.' WHERE '.$db_query.$db_groups.$db_orders.' LIMIT '.$db_limits;
+        if(is_array($tables))
+        {
+            $sql = 'DELETE '.$db_tables.' FROM '.$db_tables.' WHERE '.$db_query.$db_groups.$db_orders.$db_limits;
+        }
+        else
+        {
+            $sql = 'DELETE FROM '.$db_tables.' WHERE '.$db_query.$db_groups.$db_orders.$db_limits;
+        }
         return array('sql' => $sql, 'v' => $v);
     }
 

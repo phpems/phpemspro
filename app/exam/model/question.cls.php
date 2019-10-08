@@ -792,10 +792,18 @@ class question
                                     if(count($tmpqids) >= $number)
                                     {
                                         $arr = array_rand($tmpqids, $number);
-                                        foreach($arr as $i)
-                                        {
-                                            $questionids[$questype][] = $tmpqids[$i];
-                                        }
+										if(is_array($arr))
+										{
+											foreach($arr as $i)
+											{
+												$questionids[$questype][] = $tmpqids[$i];
+											}
+										}
+										else
+										{
+											if($tmpqids[$arr])
+											$questionids[$questype][] = $tmpqids[$arr];
+										}
                                     }
                                     else
                                     {
@@ -808,10 +816,18 @@ class question
                                     {
                                         $arr = array_rand($tmpqrids,$p);
                                         $tmp = array();
-                                        foreach($arr as $i)
-                                        {
-                                            $tmp[] = $tmpqrids[$i];
-                                        }
+										if(is_array($arr))
+										{
+											foreach($arr as $i)
+											{
+												$tmp[] = $tmpqrids[$i];
+											}
+										}
+										else
+										{
+											if($tmpqrids[$arr])
+											$tmp[] = $tmpqrids[$arr];
+										}
                                     }
                                     else
                                     {
@@ -838,10 +854,18 @@ class question
                                     {
                                         $arr = array_rand($tmpqrids,$p);
                                         $tmp = array();
-                                        foreach($arr as $i)
-                                        {
-                                            $tmp[] = $tmpqrids[$i];
-                                        }
+										if(is_array($arr))
+										{
+											foreach($arr as $i)
+											{
+												$tmp[] = $tmpqrids[$i];
+											}
+										}
+										else
+										{
+											if($tmpqrids[$arr])
+											$tmp[] = $tmpqrids[$arr];
+										}
                                     }
                                     else
                                     {
@@ -865,10 +889,18 @@ class question
                                     }
                                     if ($t > 0) {
                                         $arr = array_rand($tmpqids,$t);
-                                        foreach($arr as $i)
-                                        {
-                                            $questionids[$questype][] = $tmpqids[$i];
-                                        }
+										if(is_array($arr))
+										{
+											foreach($arr as $i)
+											{
+												$questionids[$questype][] = $tmpqids[$i];
+											}
+										}
+										else
+										{
+											if($tmpqids[$arr])
+											$questionids[$questype][] = $tmpqids[$arr];
+										}
                                     }
                                 }
                             }
@@ -908,10 +940,18 @@ class question
                                 if(count($ids['questions'][$questype][$key]) >= $p)
                                 {
                                     $arr = array_rand($ids['questions'][$questype][$key],$p);
-                                    foreach($arr as $i)
-                                    {
-                                        $questionids[$questype][] = $ids['questions'][$questype][$key][$i];
-                                    }
+									if(is_array($arr))
+									{
+										foreach($arr as $i)
+										{
+											$questionids[$questype][] = $ids['questions'][$questype][$key][$i];
+										}
+									}
+									else
+									{
+										if($ids['questions'][$questype][$key][$arr])
+										$questionids[$questype][] = $ids['questions'][$questype][$key][$arr];
+									}
                                 }
                                 else
                                 {
@@ -936,10 +976,17 @@ class question
                                 {
                                     $arr = array_rand($tmp,$p);
                                     $tmparr = array();
-                                    foreach($arr as $i)
-                                    {
-                                        $tmparr[] = $tmp[$i];
-                                    }
+									if(is_array($arr))
+									{
+										foreach($arr as $i)
+										{
+											$tmparr[] = $tmp[$i];
+										}
+									}
+									else
+									{
+										if($tmp[$arr])$tmparr[] = $tmp[$arr];
+									}
                                     $tmp = $tmparr;
                                 }
                                 $t = $p;
@@ -975,10 +1022,17 @@ class question
                                 {
                                     $arr = array_rand($tmp,$p);
                                     $tmparr = array();
-                                    foreach($arr as $i)
-                                    {
-                                        $tmparr[] = $tmp[$i];
-                                    }
+									if(is_array($arr))
+									{
+										foreach($arr as $i)
+										{
+											$tmparr[] = $tmp[$i];
+										}
+									}
+									else
+									{
+										if($tmp[$arr])$tmparr[] = $tmp[$arr];
+									}
                                     $tmp = $tmparr;
                                 }
                                 $t = $p;
@@ -1005,10 +1059,18 @@ class question
                                 if($t > 0)
                                 {
                                     $arr = array_rand($ids['questions'][$questype][$key],$t);
-                                    foreach($arr as $i)
-                                    {
-                                        $questionids[$questype][] = $ids['questions'][$questype][$key][$i];
-                                    }
+									if(is_array($arr))
+									{
+										foreach($arr as $i)
+										{
+											$questionids[$questype][] = $ids['questions'][$questype][$key][$i];
+										}
+									}
+									else
+									{
+										if($ids['questions'][$questype][$key][$arr])
+										$questionids[$questype][] = $ids['questions'][$questype][$key][$arr];
+									}
                                 }
                             }
                         }
@@ -1029,6 +1091,14 @@ class question
         $scorelist = array();
         $questypes = self::getQuestypesByArgs();
         $needteacher = 0;
+        if(\route::get('token') != $paper['token'])
+        {
+            $message = array(
+                'statusCode' => 300,
+                "message" => "试卷冲突，请联系监考老师！"
+            );
+            \route::urlJump($message);
+        }
         foreach($paper['question']['questions'] as $key => $qs)
         {
             if(!$needteacher && $questypes[$key]['questsort'])

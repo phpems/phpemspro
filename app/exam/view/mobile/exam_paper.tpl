@@ -17,7 +17,7 @@
 				</a>
 			</div>
 			<div class="pages-content" data-callback="savedata" data-nocache="yes">
-				<form class="swiper-container" action="index.php?exam-mobile-exampaper-save" method="post">
+				<form class="swiper-container" action="index.php?exam-mobile-exam-save" method="post">
 					<input type="hidden" name="token" value="{x2;$paper['token']}">
 					<div class="swiper-wrapper">
 						{x2;tree:$paper['setting']['papersetting']['questypelite'],lite,lid}
@@ -298,10 +298,11 @@
 		<script>
 			var savedata = function(){
 				pep.mask.show('tips',{message:'请先交卷'});
-                history.pushState({id:'index.php?exam-mobile-exampaper-paper'},'{x2;$paper['name']}','index.php?exam-mobile-exampaper-paper');
+                history.pushState({id:'index.php?exam-mobile-exam-paper'},'{x2;$paper['name']}','index.php?exam-mobile-exam-paper');
 			}
 			$(function() {
-				var mySwiper = new Swiper('.swiper-container', {
+				var clock = null;
+			    var mySwiper = new Swiper('.swiper-container', {
 					'preventClicks':false,
 					"loop": false,
 					"autoplay": 0,
@@ -379,7 +380,7 @@
                 $('.selectbox.checkbox .selector').parent().siblings().on('click',function(){
                     $(this).parent().find('.selector').trigger('click');
                 });
-                $.get('index.php?exam-mobile-exampaper-lefttime&rand'+Math.random(),function(data){
+                $.get('index.php?exam-mobile-exam-lefttime&rand'+Math.random(),function(data){
                     var setting = {
                         time:{x2;$paper['time']},
                         hbox:$("#exampaper-timer_h"),
@@ -390,8 +391,14 @@
                         }
                     }
                     setting.lefttime = parseInt(data);
-                    countdown(setting);
+                    clock = countdown(setting);
                 });
+                setInterval(saveanswer,271000);
+                pep.clock.countdown = setInterval(function(){
+                    $.get('index.php?exam-mobile-exam-lefttime&rand'+Math.random(),function(data){
+                        clock(data);
+                    });
+                },179000);
 			});
 		</script>
     {x2;if:!$_userhash}

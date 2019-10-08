@@ -1875,9 +1875,9 @@ class exams
         {
             $args[] = array('AND',"ehscore <= :escore",'escore',$this->search['escore']);
         }
-        if($this->search['examid'])
+        if($this->search['paperid'])
         {
-            $args[] = array('AND',"ehexamid = :ehexamid",'ehexamid',$this->search['examid']);
+            $args[] = array('AND',"ehpaperid = :ehpaperid",'ehpaperid',$this->search['paperid']);
         }
         $scores = favor::getUserExamHistoryList($subject['subjectdb'],$args,$page);
         $paperids = implode(',',explode(',',str_replace(' ','',trim($basic['basicexam']['self'],' ,').trim($basic['basicexam']['auto'],' ,'))));

@@ -3,13 +3,17 @@ var pep = {
     'copyright':'phpems pro',
     'width':$(window).width(),
     'height':$(window).height(),
-    'countdownloop':false,
+    'clock':{},
     'allowpre':true,
     'prePages':[],
     'prePage':null,
     'currentAjax':false,
     'ajaxSending':false,
     'initpage':function(page,tabindex,initscroll){
+        for(x in pep.clock)
+        {
+            clearInterval(pep.clock[x]);
+        }
         if(tabindex >= 0)
         {
             var cp = page.find('.pages-tabs').hide().eq(tabindex).show();
@@ -622,13 +626,14 @@ function formsubmit(){
 
 var countdown = function(userOptions)
 {
-    var h,m,s,t;
+    var h,m,s,t,options;
     var init = function()
     {
-        userOptions.time = userOptions.time*60 - userOptions.lefttime;
-        s = userOptions.time%60;
-        m = parseInt(userOptions.time%3600/60);
-        h = parseInt(userOptions.time/3600);
+        options = userOptions;
+        options.counttime = options.time*60 - options.lefttime;
+        s = options.counttime%60;
+        m = parseInt(options.counttime%3600/60);
+        h = parseInt(options.counttime/3600);
     }
 
     var setval = function()
@@ -673,7 +678,7 @@ var countdown = function(userOptions)
                 }
                 else
                 {
-                    clearInterval(pep.countdownloop);
+                    clearInterval(pep.clock.countdown);
                     userOptions.finish();
                     return ;
                 }
@@ -683,7 +688,11 @@ var countdown = function(userOptions)
     }
 
     init();
-    pep.countdownloop = setInterval(step, 1000);
+    pep.clock.countdown = setInterval(step, 1000);
+    return function(lefttime){
+        options.lefttime = lefttime;
+        init();
+    }
 };
 
 function inituploader()

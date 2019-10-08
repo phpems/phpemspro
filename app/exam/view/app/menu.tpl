@@ -24,13 +24,6 @@
                 <i class="glyphicon glyphicon-menu-right pull-right"></i>
             </li>
         </a>
-        <a href="index.php?exam-app-exam">
-            <li{x2;if:$_route['method'] == 'exam'} class="active"{x2;endif}>
-                <i class="glyphicon glyphicon-flash"></i>
-                考前押题
-                <i class="glyphicon glyphicon-menu-right pull-right"></i>
-            </li>
-        </a>
         <a href="index.php?exam-app-history">
             <li{x2;if:$_route['method'] == 'history'} class="active"{x2;endif}>
                 <i class="glyphicon glyphicon-time"></i>

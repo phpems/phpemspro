@@ -38,6 +38,15 @@ class point
         \tpl::getInstance()->assign('subject',$this->subject);
         \tpl::getInstance()->assign('basic',$this->basic);
         \tpl::getInstance()->assign('status',$this->status);
+        if($this->basic['basicexam']['model'] == 2)
+        {
+            $message = array(
+                'statusCode' => 200,
+                "callbackType" => "forward",
+                "forwardUrl" => "index.php?exam-mobile-exam"
+            );
+            \route::urlJump($message);
+        }
     }
 
     public function intro()
@@ -256,9 +265,12 @@ class point
         $rate = array();
         foreach ($points[$sectionid] as $point)
         {
-            $numbers[$point['pointid']] = question::getQuestionNumberByPointid($this->subject['subjectdb'],$point['pointid']);
-            $right[$point['pointid']] = intval($record['recordnumber'][$point['pointid']]['right'] + $record['recordnumber'][$point['pointid']]['wrong']);
-            $rate[$point['pointid']] = intval(100*$record['recordnumber'][$point['pointid']]['right']/($record['recordnumber'][$point['pointid']]['right'] + $record['recordnumber'][$point['pointid']]['wrong']));
+            if($this->basic['basicpoints'][$sectionid][$point['pointid']])
+            {
+                $numbers[$point['pointid']] = question::getQuestionNumberByPointid($this->subject['subjectdb'], $point['pointid']);
+                $right[$point['pointid']] = intval($record['recordnumber'][$point['pointid']]['right'] + $record['recordnumber'][$point['pointid']]['wrong']);
+                $rate[$point['pointid']] = intval(100 * $record['recordnumber'][$point['pointid']]['right'] / ($record['recordnumber'][$point['pointid']]['right'] + $record['recordnumber'][$point['pointid']]['wrong']));
+            }
         }
         unset($record);
         \tpl::getInstance()->assign('right',$right);
@@ -288,12 +300,15 @@ class point
             $wg = 0;
             foreach($point as $p)
             {
-                $number += question::getQuestionNumberByPointid($this->subject['subjectdb'],$p['pointid']);
-                $rt += $record['recordnumber'][$p['pointid']]['right'];
-                $wg += $record['recordnumber'][$p['pointid']]['wrong'];
-                if($p['pointid'] == $pointid)
+                if($this->basic['basicpoints'][$key][$p['pointid']])
                 {
-                    $thispoint = $p;
+                    $number += question::getQuestionNumberByPointid($this->subject['subjectdb'],$p['pointid']);
+                    $rt += $record['recordnumber'][$p['pointid']]['right'];
+                    $wg += $record['recordnumber'][$p['pointid']]['wrong'];
+                    if($p['pointid'] == $pointid)
+                    {
+                        $thispoint = $p;
+                    }
                 }
             }
             $numbers[$key] = $number;

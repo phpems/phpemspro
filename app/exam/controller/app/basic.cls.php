@@ -38,6 +38,15 @@ class basic
         \tpl::getInstance()->assign('subject',$this->subject);
         \tpl::getInstance()->assign('basic',$this->basic);
         \tpl::getInstance()->assign('status',$this->status);
+        if($this->basic['basicexam']['model'] == 2)
+        {
+            $message = array(
+                'statusCode' => 200,
+                "callbackType" => "forward",
+                "forwardUrl" => "index.php?exam-app-exam"
+            );
+            \route::urlJump($message);
+        }
     }
 
     public function package()
@@ -210,20 +219,24 @@ class basic
             $wg = 0;
             foreach($point as $p)
             {
-                $numbers[$p['pointid']] = question::getQuestionNumberByPointid($this->subject['subjectdb'],$p['pointid']);
-                $favor[$key] += intval(\pedis::getInstance()->getHashData('favornumber',\exam\app::$_user['sessionusername'].'-'.$this->subject['subjectdb'].'-'.$p['pointid']));
-                $note[$key] += intval(\pedis::getInstance()->getHashData('notenumber',\exam\app::$_user['sessionusername'].'-'.$this->subject['subjectdb'].'-'.$p['pointid']));
-                $rt += $record['recordnumber'][$p['pointid']]['right'];
-                $wg += $record['recordnumber'][$p['pointid']]['wrong'];
-                $donenumber[$p['pointid']] = $record['recordnumber'][$p['pointid']]['right'] + $record['recordnumber'][$p['pointid']]['wrong'];
-                if($p['pointid'] == $pointid)
+                if($this->basic['basicpoints'][$key][$p['pointid']])
                 {
-                    $thispoint = $p;
+                    $numbers[$p['pointid']] = question::getQuestionNumberByPointid($this->subject['subjectdb'],$p['pointid']);
+                    $favor[$key] += intval(\pedis::getInstance()->getHashData('favornumber',\exam\app::$_user['sessionusername'].'-'.$this->subject['subjectdb'].'-'.$p['pointid']));
+                    $note[$key] += intval(\pedis::getInstance()->getHashData('notenumber',\exam\app::$_user['sessionusername'].'-'.$this->subject['subjectdb'].'-'.$p['pointid']));
+                    $rt += $record['recordnumber'][$p['pointid']]['right'];
+                    $wg += $record['recordnumber'][$p['pointid']]['wrong'];
+                    $donenumber[$p['pointid']] = $record['recordnumber'][$p['pointid']]['right'] + $record['recordnumber'][$p['pointid']]['wrong'];
+                    if($p['pointid'] == $pointid)
+                    {
+                        $thispoint = $p;
+                    }
                 }
             }
             $wrong[$key] = intval($wg);
             $right[$key] = intval($rt);
         }
+
         unset($record);
         \tpl::getInstance()->assign('sections',$sections);
         \tpl::getInstance()->assign('allnumber',array('right' => array_sum($right),'wrong' => array_sum($wrong),'all' => array_sum($numbers)));

@@ -15,7 +15,7 @@
 			</div>
 			<div class="col-xs-3">
 				<ul class="list-unstyled list-inline pull-right">
-					<li class="title hide" style="padding-left: 0px;padding-right: 0px;">
+					<li class="title" style="padding-left: 0px;padding-right: 0px;">
 						<button type="button" class="btn btn-primary" style="margin-top: 20px;"><i class="glyphicon glyphicon-edit"></i> 计算器</button>
 					</li>
 					<li class="title" style="padding-right: 0px;">
@@ -33,15 +33,15 @@
 				<p class="pagebox">
 					<a class="btn btn-danger btn-block" style="font-size: 20px;padding:15px;font-weight: 600;"><span id="timer_h">00</span>：<span id="timer_m">00</span>：<span id="timer_s">00</span></a>
 				</p>
-				<div class="leftmenu swiper-container" style="background: none;overflow: hidden;" id="questionindex">
-					<div class="swiper-wrapper" style="height: auto;">
+				<div class="leftmenu" style="background: none;overflow: hidden;" id="questionindex">
+					<div class="" style="height: auto;">
                         {x2;eval:v:qtid = 0}
                         {x2;tree:$paper['setting']['papersetting']['questypelite'],lite,lid}
                         {x2;eval:v:qtindex = 0}
                         {x2;eval:v:questype = v:key}
                         {x2;if:$paper['question']['questions'][v:questype] || $paper['question']['questionrows'][v:questype]}
-						<div class="swiper-slide questionindex">
-							<p class="text-center title">{x2;$questypes[v:questype]['questype']}</p>
+						<div class="questionindex" style="height: auto;padding:15px 10px 5px 10px;">
+							<p class="text-center title" style="font-size: 16px;margin-bottom: 10px;line-height: 36px;">{x2;$questypes[v:questype]['questype']}</p>
                             {x2;if:$paper['question']['questions'][v:questype]}
                             {x2;if:$basic['basicexam']['changesequence']}
                             {x2;eval: shuffle($paper['question']['questions'][v:questype]);}
@@ -49,15 +49,9 @@
                             {x2;tree:$paper['question']['questions'][v:questype],question,qid}
                             {x2;eval:v:qtid++}
                             {x2;eval:v:qtindex++}
-							<a id="sign_{x2;v:question['questionid']}" data-index="{x2;v:qtid}" rel="{x2;v:question['questionid']}" href="javascript:;" class="questionindexbutton btn{x2;if:v:qid == $number} btn-primary{x2;else}{x2;if:$useranswer[v:question['questionid']]}{x2;if:$useranswer[v:question['questionid']]['status'] == 'right'} btn-success{x2;else} btn-danger{x2;endif}{x2;else} btn-default{x2;endif}{x2;endif}">{x2;v:qid}</a>
-                            {x2;if:v:qtindex % 40 == 0 && v:qtindex < $paper['setting']['papersetting']['questype'][v:questype]['number']}
-						</div>
-						<div class="swiper-slide questionindex">
-							<p class="text-center title">{x2;$questypes[v:questype]['questype']}</p>
-                            {x2;endif}
+							<a style="width: 30px;height: 30px;line-height: 30px;" id="sign_{x2;v:question['questionid']}" data-index="{x2;v:qtid}" rel="{x2;v:question['questionid']}" href="javascript:;" class="questionindexbutton btn{x2;if:v:qid == $number} btn-primary{x2;else}{x2;if:$useranswer[v:question['questionid']]}{x2;if:$useranswer[v:question['questionid']]['status'] == 'right'} btn-success{x2;else} btn-danger{x2;endif}{x2;else} btn-default{x2;endif}{x2;endif}">{x2;v:qid}</a>
                             {x2;endtree}
                             {x2;endif}
-
 
                             {x2;if:$paper['question']['questionrows'][v:questype]}
                             {x2;if:$basic['basicexam']['changesequence']}
@@ -67,12 +61,7 @@
                             {x2;tree:v:questionrows['data'],question,qid}
                             {x2;eval:v:qtid++}
                             {x2;eval:v:qtindex++}
-							<a id="sign_{x2;v:question['questionid']}" data-index="{x2;v:qtid}" rel="{x2;v:question['questionid']}" href="javascript:;" class="questionindexbutton btn{x2;if:v:qid == $number} btn-primary{x2;else}{x2;if:$useranswer[v:question['questionid']]}{x2;if:$useranswer[v:question['questionid']]['status'] == 'right'} btn-success{x2;else} btn-danger{x2;endif}{x2;else} btn-default{x2;endif}{x2;endif}">{x2;v:qid}</a>
-                            {x2;if:v:qtindex % 40 == 0 && v:qtindex < $paper['setting']['papersetting']['questype'][v:questype]['number']}
-						</div>
-						<div class="swiper-slide questionindex">
-							<p class="text-center title">{x2;$questypes[v:questype]['questype']}</p>
-                            {x2;endif}
+							<a style="width: 30px;height: 30px;line-height: 30px;" id="sign_{x2;v:question['questionid']}" data-index="{x2;v:qtid}" rel="{x2;v:question['questionid']}" href="javascript:;" class="questionindexbutton btn{x2;if:v:qid == $number} btn-primary{x2;else}{x2;if:$useranswer[v:question['questionid']]}{x2;if:$useranswer[v:question['questionid']]['status'] == 'right'} btn-success{x2;else} btn-danger{x2;endif}{x2;else} btn-default{x2;endif}{x2;endif}">{x2;v:qid}</a>
                             {x2;endtree}
                             {x2;endtree}
                             {x2;endif}
@@ -80,12 +69,11 @@
                         {x2;endif}
                         {x2;endtree}
 					</div>
-					<div class="swiper-pagination"></div>
                     {x2;eval: $allnumber = v:qtid}
 				</div>
 			</div>
 			<form class="col-xs-9 nopadding" id="exampaper" action="index.php?exam-app-exam-save" method="post">
-				<input type="hidden" name="token" value="{x2;$paper['token']}">
+                <input type="hidden" name="token" value="{x2;$paper['token']}">
                 {x2;eval:v:qtid = 0}
                 {x2;tree:$paper['setting']['papersetting']['questypelite'],lite,lid}
                 {x2;eval:v:qtindex = 0}
@@ -378,7 +366,7 @@
                 mbox:$("#timer_m"),
                 sbox:$("#timer_s"),
                 finish:function(){
-                    $('#exampaper').submit();
+                    //$('#exampaper').submit();
                 }
             }
             setting.lefttime = parseInt(data);

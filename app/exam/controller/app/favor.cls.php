@@ -47,6 +47,15 @@ class favor
         \tpl::getInstance()->assign('subject',$this->subject);
         \tpl::getInstance()->assign('basic',$this->basic);
         \tpl::getInstance()->assign('status',$this->status);
+        if($this->basic['basicexam']['model'] == 2)
+        {
+            $message = array(
+                'statusCode' => 200,
+                "callbackType" => "forward",
+                "forwardUrl" => "index.php?exam-app-exam"
+            );
+            \route::urlJump($message);
+        }
     }
 
     public function save()
